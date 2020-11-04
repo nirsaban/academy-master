@@ -1,5 +1,9 @@
 @extends('masters.studentMaster')
 @section('content')
+<?php
+ehco 'hrtrrt';die;
+
+?>
     <!-- <link rel="stylesheet" href="{{ URL::asset('css/homeEmployerTest.css') }}"> -->
 
     <div class="titre-content" style="margin-top: 150px">
