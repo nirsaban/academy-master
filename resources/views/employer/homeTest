@@ -1,0 +1,42 @@
+<!-- <div class="row1">
+        <div>
+        <div class="example-1 card1">
+          <div class="wrapper2">
+            <div class="data">
+              <div class="content">
+                <span class="author" style="font-size: 1.2em;">{{$job['category']['cat_name']}}</span>
+                <h1 class="title" style="font-size: 3em; color: #fff;"><a href="#" style="color: #fff;">{{$job['course']['name']}}</a></h1>
+                <p style="font-size: 1.2em; display: flex; align-items: center; font-weight: bold; color: #fff;">
+                    <i class="nc-icon nc-caps-small"></i>&nbsp;&nbsp;&nbsp;
+                    <span>{{$job['title']}}</span>
+                </p>
+                <p style="font-size: 1.2em; display: flex; align-items: center; font-weight: bold; color: #fff;">
+                    <i class="nc-icon nc-briefcase-24"></i>&nbsp;&nbsp;&nbsp;
+                    <span>{{$job['company']}}</span>
+                </p>
+                <p style="font-size: 1.2em; display: flex; align-items: center; font-weight: bold; color: #fff;">
+                    <i class="nc-icon nc-pin-3"></i>&nbsp;&nbsp;&nbsp;
+                    <span>{{$job['location']}}</span>
+                </p>
+                <label for="show-menu{{$job['title']}}" class="menu-button"><span></span></label>
+              </div>
+              <input type="checkbox" id="show-menu{{$job['title']}}"/>
+              <ul class="menu-content">
+                <li>
+                  <a href ="editJob/{{$job['id']}}/course/{{$job['course']['id']}}" id="left-panel-link" class="nc-icon nc-ruler-pencil"></a>
+                </li>
+                <li><a onclick="clickForm()" class="nc-icon nc-single-02">
+                    <form action="{{url('studentCategory')}}" class="nc-icon nc-single-02" method="POST" style="display: none">
+                    @csrf
+                    <input type="hidden"  name="job_id" value="{{$job['id']}}">
+                    <input type="hidden" name="category_id" value="{{$job['category']['id']}}">
+                    <input id="form" type="submit" class="btn" name="submit"  id="left-panel-link" value="All students">
+                </form>
+                </a></li>
+                <li><a href="job/delete/{{$job['id']}}" data-toggle="modal" data-target="#exampleModal1" id="left-panel-link" onclick="deleteJob(this)" type="button" class="nc-icon nc-simple-remove"></a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+        @endforeach
+</div> -->

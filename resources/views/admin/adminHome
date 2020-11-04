@@ -1,0 +1,45 @@
+<main style="margin-top: 5rem" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<div class="container tebleBingo ">
+            <div class="row text-center">
+                <h3 class="display-3  font-weight-bold font-italic" style="margin-bottom: 4rem;margin: 0 auto;" >bingo..</h3>
+            </div>
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for match.."
+                       title="Type in a name">
+
+                <table id="myTable" border="1px solid black" class="align-content-center">
+                    <tr class="header ">
+                        <th class="text-center" style="width:5%">#</th>
+                        <th class="text-center" style="width:20%;">Course </th>
+                        <th class="text-center" style="width:10%;">Name</th>
+                        <th class="text-center" style="width:15%;">Company</th>
+                        <th class="text-center" style="width:15%;">Job</th>
+                        <th class="text-center" style="width:45%;">Little more</th>
+                        <th class="text-center" style="width:10%;">disabled</th>
+                    </tr>
+                    <?php $count = 0;?>
+                    @foreach($success as $bingo)
+                        <?php $count++ ?>
+
+                        <tr  @if($bingo['job']['confirm'] == 0 ) style="background-color:rgba(200,40,40,0.3);" @endif>
+                            <td class="text-center font-weight-bold"><?= $count ?></td>
+                            @foreach($courses as $course)
+                                @if($bingo['user']['course_id'] == $course['id'])
+                                    <td class="text-center font-weight-bolder ">{{$course['name']}}</td>
+                                @else @continue;
+                                @endif
+                            @endforeach
+                            <td class="text-center">{{$bingo['user']['name']}}</td>
+                            <td class="text-center">{{$bingo['job']['company']}}</td>
+                            <td class="text-center">{{$bingo['job']['title']}}</td>
+                            <td>{{$bingo['status_message'] ?? 'no more..'}}</td>
+                            @if($bingo['job']['confirm'] == 0 )
+                                <td class="text-center" style="color: red"><i class="fas fa-minus-circle"></i> </td>
+                            @else
+                                <td class="text-center" disabled="true"><i class="fas fa-minus-circle" onclick="disabled('{{$bingo['user']['id']}}','{{$bingo['job']['id']}}')"></i> </td>
+                            @endif
+                        </tr>
+                    @endforeach
+                </table>
+
+        </div>
+        </main>a

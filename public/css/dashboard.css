@@ -1,0 +1,292 @@
+body {
+    font-size: 1.1rem;
+}
+
+.feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+}
+
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    /* Behind the navbar */
+    padding: 48px 0 0;
+    /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+}
+
+.sidebar .nav-link .feather {
+    margin-right: 4px;
+    color: #999;
+}
+
+.sidebar .nav-link.active {
+    color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+    color: inherit;
+}
+
+.sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+
+/*
+ * Content
+ */
+
+[role="main"] {
+    padding-top: 133px;
+    /* Space for fixed navbar */
+}
+
+@media (min-width: 768px) {
+    [role="main"] {
+        padding-top: 48px;
+        /* Space for fixed navbar */
+    }
+}
+
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, .25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+}
+
+.form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+.charts {
+    width: 100%;
+    display: flex;
+}
+
+.charJob {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+
+.charStu {
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#data-set {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border: 5px ridge rgba(124, 127, 128, 0.32);
+    border-radius: 40px 39px 40px 40px;
+    text-align-last: center;
+}
+
+#data-set>option {
+    text-align: center;
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#chartdiv00 {
+    display: block;
+    width: 60%;
+    font-size: 3rem;
+}
+
+.containerAdmin {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart_area {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+}
+
+.tebleBingo {
+    display: flex;
+    flex-direction: column;
+}
+
+#myInput {
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+
+#myTable {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+table td {
+    word-wrap: break-word;
+    /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;
+    /* Renamed property in CSS3 draft spec */
+}
+
+#myTable th,
+#myTable td {
+    padding: 2px;
+    text-align: center;
+}
+
+#myTable tr {
+    border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header,
+#myTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+[type="file"] {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    white-space: nowrap;
+    width: 3px;
+}
+
+[type="file"]+label {
+    background-color: #000;
+    border-radius: 2rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 2rem 4rem;
+}
+
+[type="file"]:focus+label,
+[type="file"]+label:hover {
+    background-color: #c20a27;
+}
+
+#file:hover {
+    background-color: rgba(194, 10, 39, 0.45);
+    border-radius: 5px;
+}
+
+[type="file"]:focus+label {
+    outline: 1px dotted #000;
+}
+
+.blur-out-expand-fwd {
+    -webkit-animation: blur-out-expand-fwd 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: blur-out-expand-fwd 7s cubic-bezier(0.250, 0.460, 0.450, 0.500) both;
+}
+
+@-webkit-keyframes blur-out-expand-fwd {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-filter: blur(.01);
+        filter: blur(.01)
+    }
+    100% {
+        letter-spacing: 1em;
+        -webkit-transform: translateZ(300px);
+        transform: translateZ(300px);
+        -webkit-filter: blur(12px) opacity(0);
+        filter: blur(12px) opacity(0)
+    }
+}
+
+@keyframes blur-out-expand-fwd {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-filter: blur(.01);
+        filter: blur(.01)
+    }
+    100% {
+        letter-spacing: 1em;
+        -webkit-transform: translateZ(300px);
+        transform: translateZ(300px);
+        -webkit-filter: blur(12px) opacity(0);
+        filter: blur(12px) opacity(0)
+    }
+}

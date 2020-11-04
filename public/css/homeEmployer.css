@@ -1,0 +1,101 @@
+
+body {
+    font-family: 'Montserrat';
+    font-style: Italic;
+    /*background-image: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");*/
+    /*background-attachment: fixed;*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    font-size: 1.7rem;
+}
+html {
+    scroll-behavior:smooth;
+}
+
+.card-footer{
+    display: flex;
+
+    justify-content: space-evenly;
+}
+#jobsDiv{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+.des{
+    height:10rem;
+    overflow: auto;
+}
+.JobsCard {
+    opacity: 0.8;
+    filter: alpha(opacity=60);
+    width: 30%;
+    max-height: 25%;
+    margin: .4rem;
+
+}
+.card:hover{
+    transition: ease-in-out 0.1s;
+    transform: scale(1.02, 1.02);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+.header {
+    text-align: center;
+    padding: 20px;
+
+}
+.mainTitle{
+    font-size: 4rem;
+}
+
+ /*Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+    .column {
+        flex: 46%;
+        max-width: 46%;
+    }
+}
+
+
+.card-title {
+    font-weight:bold;
+    text-align: center;
+}
+.card-text {
+    text-align: justify;
+}
+
+
+#left-panel-link {
+    position: relative;
+    left: 5%;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#left-panel-link:first-child{
+    background-color: #f19d9d;
+}
+#left-panel-link:last-child{
+background-color: #737ee5;
+
+}
+.fas{
+    margin-right:0.8rem
+}
+.sep {
+    height: 25px;
+}
+.blur-out-expand-fwd {
+
+    -webkit-animation: blur-out-expand-fwd 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: blur-out-expand-fwd 7s cubic-bezier(0.250, 0.460, 0.450, 0.500) both;
+}
+@-webkit-keyframes blur-out-expand-fwd{0%{-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-filter:blur(.01);filter:blur(.01)}100%{letter-spacing:1em;-webkit-transform:translateZ(300px);transform:translateZ(300px);-webkit-filter:blur(12px) opacity(0);filter:blur(12px) opacity(0)}}@keyframes blur-out-expand-fwd{0%{-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-filter:blur(.01);filter:blur(.01)}100%{letter-spacing:1em;-webkit-transform:translateZ(300px);transform:translateZ(300px);-webkit-filter:blur(12px) opacity(0);filter:blur(12px) opacity(0)}}

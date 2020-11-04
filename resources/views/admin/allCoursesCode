@@ -1,0 +1,46 @@
+All courses data
+
+@foreach($courses as $course)
+                    <?php $count++ ?>
+                    <tr>
+                        <td class="text-center font-weight-bold"><?= $count ?></td>
+                        <td class="text-center font-weight-bolder ">{{$course['name']}}
+                            <i data-toggle="modal" data-target="#exampleModal_{{$count}}" class="far fa-edit"></i>
+                            <i class="fas fa-trash-alt" onclick="deleteCourse('{{$course['id']}}',this.dataset)" data-courseName='{{$course['name']}}'></i>
+                        </td>
+                        <td class="text-center " id="flexText">
+                            <?php $countCat = 0;?>
+                            @foreach($course['category'] as $category)
+                                @foreach($countCategoryUser as $key => $counter)
+                                    @foreach($countCategoryJob as $name => $num)
+                                        @if($key ==  $category['cat_name'] && $name ==  $category['cat_name'] )
+                                            <?php $countCat++; ?>
+                                            {{$category['cat_name'].' '}}
+                                     <i data-toggle="modal" data-target="#exampleModalCategory_{{$category['id']}}" class="far fa-edit"></i>
+                                     <i class="fas fa-trash-alt" onclick="deleteCategory('{{$category['id']}}','{{$category['cat_name']}}')"></i>
+                                            <div class="tags">
+                                                <i class="fas fa-user-graduate "></i>{{$counter}} ,
+                                                <i class="fas fa-briefcase "></i> {{$num}}</div><br>
+                                            @include('admin.partials.EditCategory')
+                                        @endif
+                                    @endforeach
+                                @endforeach
+                            @endforeach
+
+
+                        </td>
+                        <td class="text-center"><i class="fas fa-user-graduate fa-2x"></i><span
+                                class="tags">{{$countCourseUser[$course['name']]}}</span></td>
+                        <td class="text-center"><i class="fas fa-briefcase fa-2x"></i><span
+                                class="tags">{{$countCourseJob[$course['name']]}}</span></td>
+
+                    </tr>
+
+
+                    <!-- Modal -->
+                    @include('admin.partials.EditCourse')
+                @endforeach
+
+
+
+               

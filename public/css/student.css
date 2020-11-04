@@ -1,0 +1,166 @@
+
+/*body {*/
+/*  font-family:"Sitka Text";*/
+/*    font-size: 1.7rem;*/
+
+/*}*/
+
+/*.card-footer{*/
+/*    display: flex;*/
+/*    justify-content: space-evenly;*/
+/*}*/
+
+/*.des{*/
+/*    height:10rem;*/
+/*    overflow: auto;*/
+/*}*/
+/*.JobsCard {*/
+/*    opacity: 0.8;*/
+/*    filter: alpha(opacity=60);*/
+/*    max-width: 100%;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    flex-wrap: nowrap;*/
+/*    max-height: 25%;*/
+/*    margin: 4rem;*/
+
+/*}*/
+/*.card{*/
+/*    margin: 0.5rem;*/
+/*}*/
+/*.card:hover{*/
+/*    transition: ease-in-out 0.1s;*/
+/*    transform: scale(1.02, 1.02);*/
+/*    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),*/
+/*    -5px -5px 30px 15px rgba(0,0,0,0.22);*/
+/*}*/
+/*.header {*/
+/*    text-align: center;*/
+/*    padding: 20px;*/
+
+/*}*/
+/*.mainTitle{*/
+/*    font-size: 4rem;*/
+/*}*/
+
+/*!*Responsive layout - makes a two column-layout instead of four columns *!*/
+/*@media (max-width: 800px) {*/
+/*    .column {*/
+/*        flex: 46%;*/
+/*        max-width: 46%;*/
+/*    }*/
+/*}*/
+
+
+/*.card-title {*/
+/*    font-weight:bold;*/
+/*    text-align: center;*/
+/*}*/
+/*.card-text {*/
+/*    text-align: justify;*/
+/*}*/
+
+
+/*#left-panel-link {*/
+/*    position: relative;*/
+/*    left: 5%;*/
+/*    background-color: #262626;*/
+/*    color: white;*/
+/*    font-size: 1rem;*/
+/*    !*padding: 12px 20px;*!*/
+/*    padding: 0.4rem;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*.fas{*/
+/*    margin-right:0.8rem*/
+/*}*/
+/*.sep {*/
+/*    height: 25px;*/
+/*}*/
+
+
+/*.Overlayer-active {*/
+/*    display: inherit;*/
+/*    font-size: 1.2rem;*/
+/*}*/
+
+/*.none{*/
+/*    display: none;*/
+/*}*/
+/*.block{*/
+/*    display: block;*/
+/*}*/
+
+
+/*.card-active {*/
+/*    width: 50%;*/
+/*    max-width: 100%;*/
+/*    position: fixed;*/
+/*    top: 10%;*/
+/*    left: 25%;*/
+/*    z-index: 2;*/
+
+/*}*/
+
+/*.Overlayer {*/
+/*    display: none;*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    z-index: 1;*/
+/*    overflow: hidden;*/
+/*    background-color: #050505;*/
+
+/*}*/
+
+/*.Overlayer-active {*/
+/*    display: inherit;*/
+/*}*/
+
+/*.none{*/
+/*    display: none;*/
+/*}*/
+/*.block{*/
+/*    display: block;*/
+/*}*/
+/*.like:hover:first-child{*/
+/*    transform : rotate(15deg);*/
+/*    color: red;*/
+/*}*/
+/*[type="file"] {*/
+/*    border: 0;*/
+/*    clip: rect(0, 0, 0, 0);*/
+/*    height: 1px;*/
+/*    overflow: hidden;*/
+/*    padding: 0;*/
+/*    position: absolute !important;*/
+/*    white-space: nowrap;*/
+/*    width: 3px;*/
+/*}*/
+
+/*[type="file"] + label {*/
+/*    background-color: #000;*/
+/*    border-radius: 2rem;*/
+/*    color: #fff;*/
+/*    cursor: pointer;*/
+/*    display: inline-block;*/
+/*    padding-left: 2rem 4rem;*/
+/*}*/
+
+/*[type="file"]:focus + label,*/
+/*[type="file"] + label:hover {*/
+/*    background-color: #c20a27;*/
+/*}*/
+/*#file:hover{*/
+/*    background-color: rgba(194, 10, 39, 0.45);*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*[type="file"]:focus + label {*/
+/*    outline: 1px dotted #000;*/
+/*}*/

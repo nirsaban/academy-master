@@ -1,0 +1,145 @@
+<div class="reset" onclick="resetProfile({{Auth::id()}})">
+                  Reset
+                  <div class="reset2" ></div>
+               </div>
+
+               <h5 class="card-title" >{{Auth::user()->name .' '}}Profile</h5>
+               <div class="reset1" onclick="resetProfile({{Auth::id()}})">
+                  <div class="reset2" ></div>
+               </div>
+<div class="row d-flex justify-content-center">
+                  @if(isset($profile[0]['image']))
+                  <img src="{{asset('images/_'.Auth::id().'/'.$profile[0]['image'])}}" class="profile_image" style="width: 200px; margin-bottom: 20px"/>
+                  @else
+                  <img src="{{asset('images/avatar.jpg')}}"  style="width: 200px; margin-bottom: 20px" alt="" class="profile_image">
+                  @endif    
+               </div>
+               <form action="{{ route('image.upload.post') }}"  method="POST" enctype="multipart/form-data" >
+                  @csrf
+                  <input type="hidden" name="id" value="{{Auth::id()}}">
+                  <div class="row">
+                     <div class="col-md-10">
+                        <div class="form-group">
+                           <div class="custom-file">
+                              <input type="file" name="image" class="custom-file-input" id="inputGroupFile04" />
+                              <label class="custom-file-label" for="customFile">Choose file</label>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-2">
+                        <button type="submit" class="btn btn-warning btn-round p-2 m-0">Add Photo</button>
+                     </div>
+                  </div>
+               </form>
+               <div class="row d-flex justify-content-center">
+                  <div class="col-md-6 align-items-center" style="display: flex; flex-direction: column">
+                     <div>
+                        <label>My Category</label>
+                        <div class="btn btn-warning btn-round py-2 ml-5">
+                           <i class="nc-icon nc-ruler-pencil" data-toggle="modal" data-target=".bs-example-modal-new"></i>
+                        </div>
+                     </div>
+                     <div class="category_name ">{{$profile[0]['category']['cat_name'] ?? 'Your category'}}</div>
+                     @include('student.partials.category')
+                  </div>
+                  <div class="col-md-6 align-items-center" style="display: flex; flex-direction: column">
+                     <div>
+                        <label>About Me</label>
+                        <div class="btn btn-warning btn-round py-2 ml-5">
+                           <i class="nc-icon nc-ruler-pencil" data-target="#aboutMeModal" data-toggle="modal"></i>
+                        </div>
+                     </div>
+                     <div class="about_me_content aboutMe">
+                        {{$profile[0]['about_me'] ?? ''}}
+                     </div>
+                     @include('student.partials.about_me')
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6 align-items-center" style="display: flex; flex-direction: column">
+                     <div>
+                        <label>My Educations</label>
+                        <div class="btn btn-warning btn-round py-2 ml-5">
+                           <i class="nc-icon nc-ruler-pencil" data-toggle="modal" data-target="#myModalEducation" ></i>
+                        </div>
+                     </div>
+                     <div class="education_content  " id="pEdu" >
+                        <?php $count = 0 ?>
+                        @if(isset($profile[0]['education']))
+                        @foreach(json_decode($profile[0]['education']) as $edu)
+                        <?php $count++ ; ?>
+                        <span class="tags">{{$edu}}</span>
+                        @endforeach
+                        @endif
+                     </div>
+                     @include('student.partials.educations')
+                  </div>
+                  <div class="col-md-6 align-items-center" style="display: flex; flex-direction: column">
+                     <div>
+                        <label>My Skills</label>
+                        <div class="btn btn-warning btn-round py-2 ml-5">
+                           <i class="nc-icon nc-ruler-pencil" data-toggle="modal" data-target="#myModalSkills" ></i>
+                        </div>
+                     </div>
+                     <div class="my_skills_content" id= "spansSkills">
+                        @if(isset($profile[0]['my_skills']))
+                        @foreach(json_decode($profile[0]['my_skills']) as $skill)
+                        @if(strlen($skill) > 2)
+                        <span class="tags">{{$skill}}</span>
+                        @endif
+                        @endforeach
+                        @endif
+                     </div>
+                     @include('student.partials.skills')
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6 align-items-center" style="display: flex; flex-direction: column">
+                     <div>
+                        <label>My best project links</label>
+                        <div class="btn btn-warning btn-round py-2 ml-4">
+                           <i class="nc-icon nc-ruler-pencil" data-toggle="modal" data-target="#myModalLinks" ></i>
+                        </div>
+                     </div>
+                     <div class="links_content"  id="pLink">
+                        @if(isset($profile[0]['links']))
+                        @foreach(json_decode($profile[0]['links'])  as $link)
+                        @if(strlen($link) > 2)
+                        <a class="linksA linkStyle" onclick="window.location.href = 'https://{{$link}}'">{{$link}}</a><br>
+                        @endif
+                        @endforeach
+                        @endif
+                     </div>
+                     @include('student.partials.links')
+                  </div>
+                  <div class="col-md-6 align-items-center" style="display: flex; flex-direction: column">
+                     <div>
+                        <label>My Work experience</label>
+                        <div class="btn btn-warning btn-round py-2 ml-1">
+                           <i class="nc-icon nc-ruler-pencil" data-toggle="modal" data-target="#myModalWorks" ></i>
+                        </div>
+                     </div>
+                     <div class="work_experience_content" id="pEx">
+                        <?php $count = 0 ?>
+                        @if(isset($profile[0]['work_experience']))
+                        @foreach(json_decode($profile[0]['work_experience']) as $work)
+                        <?php $count++ ; ?>
+                        @if(strlen($work) > 2)
+                        <span class="tags">{{$work}}</span>
+                        @endif
+                        @endforeach
+                        @endif
+                     </div>
+                  </div>
+               </div>
+
+               <div class="compliteProf">
+   <div data-color = "rgba(255, 0, 0, 0.2)" class="category_id item">Category</div>
+   <div data-color = "rgba(255, 0, 0, 0.4)" class="about_me item">about</div>
+   <div data-color = "rgba(255, 0, 0, 0.5)" class="education item">education</div>
+   <div data-color = "rgba(255, 0, 0, 0.6)" class="my_skills item">skills</div>
+   <div data-color = "rgba(255, 0, 0, 0.7)" class="links item">links</div>
+   <div data-color = "rgba(255, 0, 0, 0.8)" class="work_experience item" >works</div>
+   <div  data-color = "rgba(255, 0, 0, 0.9)" class="image item">image</div>
+   <div style="font-size: 1.7rem"  class="present item">0%</div>
+</div>
