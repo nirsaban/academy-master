@@ -45,6 +45,7 @@ Route::post('/updateJob','JobController@updateJob');
 Route::post('/studentCategory','JobController@studentByCategory');
 Route::get('job/delete/{id}', 'JobController@destroy')->middleware('EmployerRole');;
 Route::post('/profileStudent','JobController@showStudent');
+Route::get('/PortFolioStudent/{id}','JobController@showPortfolio')->middleware('EmployerRole');
 
 //placement routes
 Route::group(['middleware' => 'PlacementRole'],function(){

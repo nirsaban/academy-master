@@ -1,6 +1,7 @@
 @extends('masters.placementMaster')
 @section('content')
-    <link rel="stylesheet" href="{{ URL::asset('css/placementHome.css') }}">
+
+    {{-- <link rel="stylesheet" href="{{ URL::asset('css/placementHome.css') }}"> --}}
     <div class="container ">
         <div class="row">
             <h2>All Courses</h2>

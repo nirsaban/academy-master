@@ -24,7 +24,7 @@
 
 <div class="wrapper">
     <div class="main-panel" style="width: 100%">
-    <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent" style="background-color: #FFF !important>
+    <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent" style="background-color: #FFF !important">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
                     <div class="logo">

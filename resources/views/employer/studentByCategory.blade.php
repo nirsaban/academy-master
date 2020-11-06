@@ -5,8 +5,8 @@
 
     <div class="d-flex justify-content-center" style="margin-top: 150px">
         <h2> Did you like my profile? Mark like And maybe we'll meet soon<span class="LikeIcon"> <i class="far fa-thumbs-up fa-1x" style="color:#1b4b72;" onclick="addLikeToStudent(1,'{{$id}}','{{$job_id}}')"></i></span>
-    </div>   
-    
+    </div>
+
     <div class="content">
         <div class="row d-flex justify-content-center">
           <div class="col-md-4">
@@ -59,7 +59,7 @@
                             @endforeach
                         </select>
                         </div>
-                        
+
                       </div>
                     </div>
                   </li>
@@ -87,7 +87,7 @@
                             @endforeach
                         @endif
                         </h5>
-                        
+
                       </div>
                     </div>
                   </li>
@@ -175,7 +175,7 @@
                             @endforeach
                         @endif
                         </h5>
-                        
+
                       </div>
                     </div>
                   </li>
@@ -197,14 +197,10 @@
                         <div class="author">
                         <h5 class="title">
                         @if(isset($allData[0]->links))
-                            @foreach(json_decode($allData[0]->links)  as $link)
-                                @if(strlen($link) > 7)
-                                    <a class="linksA linkStyle" href="">{{$link}}</a><br>
-                                @endif
-                            @endforeach
+                        <a class="linksA linkStyle" href="PortFolioStudent/{{$id}}">Go To My PortFolio</a><br>
                         @endif
                         </h5>
-                        
+
                       </div>
                     </div>
                   </li>
@@ -215,7 +211,7 @@
           </div>
 
         </div>
-        </div> 
+        </div>
 
         <script src="{{asset('js/employer.js')}}"></script>
 @endsection

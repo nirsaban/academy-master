@@ -1,5 +1,21 @@
 function checkCategory(id) {
-    if (confirm("to view more please fill Your profile")) window.location = `profile/${id}`;
+    Swal.fire({
+        title: "to view more please fill Your profile?",
+        text: "Choose Your SubCategroy...",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ok go To my Profile'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location = `profile/${id}`;
+        } else {
+            Swal.fire("Cancelled", "Stay Here:)", "Warning");
+
+        }
+    });
+
 }
 
 function resetProfile(id) {

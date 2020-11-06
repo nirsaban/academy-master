@@ -24,7 +24,7 @@ class JobController extends Controller
         return view('employer.create',compact('courses','counter'));
     }
     public function create(JobRequest $request){
-      
+
         json_decode($request->category_id);
         json_decode($request->course_id);
         $create = Job::create(['user_id'=>Auth::id()] +  $request->all());
@@ -117,6 +117,14 @@ class JobController extends Controller
            $watch =  Watch::create(['watch'=>json_decode($request->job_id),'watched'=>$id]);
         }
         return view('employer.studentByCategory',$profile);
+    }
+
+    public function showPortfolio($id){
+        $course = User::with('course')->where('id',json_decode($id))->get()->toArray();
+
+        $profile = Profile::with('category')->where('user_id',json_decode($id))->get()->toArray()[0];
+
+     return view('employer.portfolioStudent',compact('course','profile','id'));
     }
 
 }

@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="pr-3 text-justify">
                                     <div class="links_content"  id="pLink">
-                                        @if(isset($profile[0]['links']))
+                                        {{-- @if(isset($profile[0]['links']))
                                         @foreach(json_decode($profile[0]['links'])  as $link)
                                         @if(strlen($link) > 2)
                                         <li>
@@ -143,7 +143,7 @@
                                         </li>
                                         @endif
                                         @endforeach
-                                        @endif
+                                        @endif --}}
                                     </div>
                                     @include('student.partials.links')
                                 </div>

@@ -117,13 +117,13 @@ foreach ($linksArr as $key => $value) {
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
         <div class="container mb-4">
-        <input type="text" class="form-control mb-3" id="title_1"  @if(isset($title_1)) value = " {{$title_1}}" @endif  placeholder="Enter first title" onblur = "saveInput(1,'title',this.value)">
-        <h3 class="title_1" style="display:none"></h3>
+
+        <h3 class="title_1" >@if(isset($title_1)) {{$title_1}} @endif</h3>
             <div>
               <div class="row ">
                 <div class="col-md-7">
-                <textarea class="form-control"   id="des_1" rows="9" placeholder="Write description..." onblur = "saveInput(1,'des',this.value)"> @if(isset($des_1)) {{$des_1}} @endif </textarea>
-                    <p class="des_1" class="text-justify"></p>
+
+                    <p class="des_1" class="text-justify"> @if(isset($des_1)) {{$des_1}} @endif</p>
                 </div>
                   <div class="col-md-5">
                   <div id="CarouselTest" class="carousel slide" data-ride="carousel">
@@ -134,13 +134,13 @@ foreach ($linksArr as $key => $value) {
                     </ol>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img class="d-block" @if(isset($img1_1)) src="{{asset('imagesPort/_'.Auth::id().'/1_1'.$img1_1)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  id = "1_1" onclick="addPhoto(1,1)">
+                        <img class="d-block" @if(isset($img1_1)) src="{{asset('imagesPort/_'.$id.'/1_1'.$img1_1)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  id = "1_1" onclick="addPhoto(1,1)">
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block"  @if(isset($img1_2)) src="{{asset('imagesPort/_'.Auth::id().'/1_2'.$img1_2)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id = "1_2" onclick="addPhoto(1,2)">
+                        <img class="d-block"  @if(isset($img1_2)) src="{{asset('imagesPort/_'.$id.'/1_2'.$img1_2)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id = "1_2" onclick="addPhoto(1,2)">
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block" @if(isset($img1_3)) src="{{asset('imagesPort/_'.Auth::id().'/1_3'.$img1_3)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  id = "1_1"  onclick="addPhoto(1,3)">
+                        <img class="d-block" @if(isset($img1_3)) src="{{asset('imagesPort/_'.$id.'/1_3'.$img1_3)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  id = "1_1"  onclick="addPhoto(1,3)">
                       </div>
                       <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -160,12 +160,12 @@ foreach ($linksArr as $key => $value) {
         </div>
        <div class="container mb-4">
             <input type="text" class="form-control mb-3" id="title_2"  @if(isset($title_2)) value = " {{$title_2}}" @endif placeholder="Enter second title" onblur = "saveInput(2,'title',this.value)" >
-               <h3 class="title_2" style="display:none"></h3>
+               <h3 class="title_2" style="display:none" > @if(isset($title_2))  {{$title_2}}" @endif </h3>
                 <div>
                   <div class="row ">
                     <div class="col-md-7">
-                        <textarea class="form-control" id="des_2" rows="9" placeholder="Write description..." onblur = "saveInput(2,'des',this.value)"> @if(isset($des_2)) {{$des_2}} @endif</textarea>
-                        <p class="des_2"></p>
+
+                        <p class="des_2">@if(isset($des_2)) {{$des_2}} @endif</p>
                      </div>
                       <div class="col-md-5">
                       <div id="CarouselTest1" class="carousel slide" data-ride="carousel">
@@ -176,13 +176,13 @@ foreach ($linksArr as $key => $value) {
                         </ol>
                         <div class="carousel-inner">
                           <div class="carousel-item active">
-                            <img class="d-block" class="d-block" @if(isset($img2_1)) src="{{asset('imagesPort/_'.Auth::id().'/2_1'.$img2_1)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id ="2_1 " alt="" onclick="addPhoto(2,1)">
+                            <img class="d-block" class="d-block" @if(isset($img2_1)) src="{{asset('imagesPort/_'.$id.'/2_1'.$img2_1)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id ="2_1 " alt="" onclick="addPhoto(2,1)">
                           </div>
                           <div class="carousel-item">
-                            <img class="d-block" class="d-block" @if(isset($img2_2)) src="{{asset('imagesPort/_'.Auth::id().'/2_2'.$img2_2)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id ="2_2 "alt="" onclick="addPhoto(2,2)">
+                            <img class="d-block" class="d-block" @if(isset($img2_2)) src="{{asset('imagesPort/_'.$id.'/2_2'.$img2_2)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id ="2_2 "alt="" onclick="addPhoto(2,2)">
                           </div>
                           <div class="carousel-item">
-                            <img class="d-block" class="d-block" @if(isset($img2_3)) src="{{asset('imagesPort/_'.Auth::id().'/2_3'.$img2_3)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id ="2_3 "alt="" onclick="addPhoto(2,3)">
+                            <img class="d-block" class="d-block" @if(isset($img2_3)) src="{{asset('imagesPort/_'.$id.'/2_3'.$img2_3)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id ="2_3 "alt="" onclick="addPhoto(2,3)">
                           </div>
                           <a class="carousel-control-prev" href="#CarouselTest1" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -200,13 +200,13 @@ foreach ($linksArr as $key => $value) {
                 </div>
               </div>
               <div class="container mb-4">
-                <input type="text" class="form-control mb-3" id="title_3" @if(isset($title_3)) value = "{{$title_3}}" @endif placeholder="Enter third title" onblur = "saveInput(3,'title',this.value)">
-                <h3 class="title_3" style="display:none"></h3>
+
+                <h3 class="title_3" style="display:none">@if(isset($title_3)) {{$title_3}} @endif</h3>
                     <div>
                       <div class="row ">
                         <div class="col-md-7">
-                            <textarea class="form-control" id="des_3" rows="9" placeholder="Write description..." onblur = "saveInput(3,'des',this.value)" >@if(isset($des_3)) {{$des_3}} @endif</textarea>
-                            <p class="des_3"></p>
+
+                            <p class="des_3">@if(isset($des_3)) {{$des_3}} @endif</p>
                         </div>
                           <div class="col-md-5">
                           <div id="CarouselTest2" class="carousel slide" data-ride="carousel">
@@ -217,13 +217,13 @@ foreach ($linksArr as $key => $value) {
                             </ol>
                             <div class="carousel-inner">
                               <div class="carousel-item active">
-                                <img class="d-block" class="d-block" @if(isset($img3_1)) src="{{asset('imagesPort/_'.Auth::id().'/3_1'.$img3_1)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"   alt="" onclick="addPhoto(3,1)">
+                                <img class="d-block" class="d-block" @if(isset($img3_1)) src="{{asset('imagesPort/_'.$id.'/3_1'.$img3_1)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"   alt="" onclick="addPhoto(3,1)">
                               </div>
                               <div class="carousel-item">
-                                <img class="d-block" class="d-block" @if(isset($img3_2)) src="{{asset('imagesPort/_'.Auth::id().'/3_2'.$img3_2)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  alt="" onclick="addPhoto(3,2)">
+                                <img class="d-block" class="d-block" @if(isset($img3_2)) src="{{asset('imagesPort/_'.$id.'/3_2'.$img3_2)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  alt="" onclick="addPhoto(3,2)">
                               </div>
                               <div class="carousel-item">
-                                <img class="d-block" class="d-block" @if(isset($img3_3)) src="{{asset('imagesPort/_'.Auth::id().'/3_3'.$img3_3)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  alt="" onclick="addPhoto(3,3)">
+                                <img class="d-block" class="d-block" @if(isset($img3_3)) src="{{asset('imagesPort/_'.$id.'/3_3'.$img3_3)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  alt="" onclick="addPhoto(3,3)">
                               </div>
                               <a class="carousel-control-prev" href="#CarouselTest2" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -239,13 +239,7 @@ foreach ($linksArr as $key => $value) {
                       </div>
 
                     </div>
-                    <div class="col-lg-12 text-center">
-
-                        <button  class="btn btn-warning text-light"  style="background-color: #2c3e50; onclick="location.reload()"  > RETURN TO EDIT </button>
-                        <button  class="btn btn-success" style="background-color: #2c3e50; !important" onclick="livedemo('{{Auth::id()}}')"  > LIVE DEMO </button>
-                        <button  class="btn btn-danger"  style="background-color: #2c3e50; onclick="resetAll('{{Auth::id()}}')"  >RESET ALL</button>
-
-                    </div>
+                   
                 </div>
     </section>
     <!-- About Section-->

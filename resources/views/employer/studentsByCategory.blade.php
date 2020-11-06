@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="content">
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center" >
         <div class="col-md-4">
     @foreach($students as $student)
 
@@ -36,14 +36,14 @@
                         <button type="submit" class="btn btn-primary btn-round">Go to my profile</button>
                     </p>
                 </form>
-                
+
               </div>
-              
+
             </div>
 
         @endforeach
 
-    </div>   
+    </div>
     <!-- <div class="titre-content">
         <div>
             <h1> {{$title}}</h1>
