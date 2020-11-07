@@ -1,11 +1,5 @@
 @extends('masters.placementMaster')
 @section('content')
-<style>
-
-.modal-content{
-    z-index: 500;
-}
-</style>
     <!-- <link rel="stylesheet" href="{{ URL::asset('css/placementHome.css') }}"> -->
     <div class="content">
             <div class="row">
@@ -73,16 +67,18 @@
                                                 </button>
                                             </td>
                                         </tr>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>        <!-- Modal -->
+            <?php $count  = 0;?>
+            @foreach($jobs as $job)
+            <?php $count++ ?>           <!-- Modal -->
                    <div style="color: black" class="modal fade " id="myModal_{{$count}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                               <div class="modal-content">
@@ -144,6 +140,8 @@
                           </div>
 
                       </div>
+                            </td>
+                        </tr>
 
 
                     <div class="modal fade" id="declineModal_{{$count}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -166,11 +164,9 @@
 
 
                                             </div>
-                                    @endforeach
 
 
-
-
+                                            @endforeach
 
     <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
