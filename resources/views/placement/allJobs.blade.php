@@ -1,5 +1,12 @@
 @extends('masters.placementMaster')
 @section('content')
+<style>
+
+.modal{
+    z-index: 500;
+    background-color: red !important;
+}
+</style>
     <!-- <link rel="stylesheet" href="{{ URL::asset('css/placementHome.css') }}"> -->
     <div class="content">
             <div class="row">
