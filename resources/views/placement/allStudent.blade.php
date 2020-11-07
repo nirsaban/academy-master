@@ -93,9 +93,9 @@
             <?php $count++ ?>
             @include('placement.partials.profileModal')
             @include('placement.partials.cvModal')
-            @include('placement.partials.messageModal')
-            @endif
 
+            @endif
+            @include('placement.partials.messageModal')
             @endforeach
         </div>
 
