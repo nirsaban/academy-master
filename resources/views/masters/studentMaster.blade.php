@@ -30,11 +30,11 @@
                 <div class="navbar-wrapper">
                     <div class="logo">
                         <div class="d-flex justify-content-center">
-                        {{-- <img  onclick="window.location='{{url('/student')}}'"
-                                class="img-fluid"
+                        <img  onclick="window.location='{{url('/student')}}'"
+                                class="img-responsive"
                                 src="{{asset('images/logo.jpeg')}}"
                                 width="100"
-                            /> --}}
+                            />
                         </div>
                     </div>
                 </div>
