@@ -86,6 +86,16 @@
                     </div>
                 </div>
             </div>
+            <?php $count  = 0;?>
+            @foreach($allStudent as $student)
+            @if(!$student['profile']['category_id'])
+                @continue
+            @else
+            <?php $count++ ?>
+            @include('placement.partials.profileModal')
+            @include('placement.partials.cvModal')
+            @include('placement.partials.messageModal')
+            @endforeach
         </div>
 
 
