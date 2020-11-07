@@ -2,7 +2,7 @@
 @section('content')
 <style>
 
-.modal{
+.modal-content{
     z-index: 500;
     background-color: red !important;
 }
