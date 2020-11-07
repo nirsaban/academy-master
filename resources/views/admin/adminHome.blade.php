@@ -3,10 +3,10 @@
         <!-- <link rel="stylesheet" href="{{ URL::asset('css/dashboard.css') }}"> -->
 
         <div class="content">
-    
+
         <div class="row d-flex justify-content-center">
             <div class="chart_area" style=" width: 60rem; height: 30rem; margin-bottom: 50px">
-                <select name="data-set" id="data-set" onchange="updateGraph();" class="text-center">
+                <select name="data-set" id="data-set" onchange="updateGraph();" class="form-control text-center">
                     <option selected disabled>-- Filter By --</option>
                     <option value="job" selected>jobs</option>
                     <option value="student">student</option>
@@ -32,7 +32,7 @@
                                         class="form-control"
                                         placeholder="Search..."
                                         style="padding: 0; margin-bottom: 0"
-                                        id="myInput" 
+                                        id="myInput"
                                         onkeyup="myFunction()"
                                     />
                                     <div class="input-group-append">
