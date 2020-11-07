@@ -94,6 +94,8 @@
             @include('placement.partials.profileModal')
             @include('placement.partials.cvModal')
             @include('placement.partials.messageModal')
+            @endif
+
             @endforeach
         </div>
 
