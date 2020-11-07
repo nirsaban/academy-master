@@ -77,7 +77,12 @@
                                 </tr>
                             </tbody>
                         </table>
-                                        <!-- Modal -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        <!-- Modal -->
                    <div style="color: black" class="modal fade " id="myModal_{{$count}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                               <div class="modal-content">
@@ -164,12 +169,7 @@
                                     @endforeach
 
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
 
     <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
