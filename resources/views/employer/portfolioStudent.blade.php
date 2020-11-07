@@ -1,4 +1,4 @@
-@extends('masters.studentMaster')
+@extends("masters.$theMaster")
 @section('content')
 <?php
  if($profile['links'] !== NULL){
@@ -239,7 +239,7 @@ foreach ($linksArr as $key => $value) {
                       </div>
 
                     </div>
-                   
+
                 </div>
     </section>
     <!-- About Section-->

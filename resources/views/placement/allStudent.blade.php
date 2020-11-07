@@ -59,6 +59,7 @@
                                     <tbody>
                                     <?php $count  = 0;?>
                                     @foreach($allStudent as $student)
+
                                     @if(!$student['profile']['category_id'])
                                         @continue
                                     @else

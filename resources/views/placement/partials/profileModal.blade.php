@@ -33,13 +33,10 @@
                 </center>
                 <center>
                     @if(isset($student['profile']['links']))
-                        <p class="text-left"><strong>work Link: </strong><br>
-                            @foreach(json_decode($student['profile']['links']) as $link)
-                                @if(strlen($link) > 2)
-                                    <a href="{{$link}}">{{$link}}</a><br>
-                    @endif
-                    @endforeach
-                        </p>
+                    <?php $id = $student['id'];
+
+                    ?>
+                     <a  onclick="window.location='{{url('portFolio').'/'.$id}}'">Go to my portfolio</a>
                     @endif
                 </center>
                 <center>

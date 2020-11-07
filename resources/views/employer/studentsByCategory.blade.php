@@ -7,7 +7,8 @@
         </div>
     </div>
     <div class="content">
-        <div class="row d-flex justify-content-center" >
+
+        <div class="row d-flex justify-content-center">
         <div class="col-md-4">
     @foreach($students as $student)
 

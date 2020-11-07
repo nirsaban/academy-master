@@ -328,5 +328,11 @@ class EditController extends Controller
         }
     }
 
+public function showPortfolio($id){
+    $course = User::with('course')->where('id',json_decode($id))->get()->toArray();
 
+    $profile = Profile::with('category')->where('user_id',json_decode($id))->get()->toArray()[0];
+     $theMaster = 'placementMaster';
+ return view('employer.portfolioStudent',compact('course','profile','id','theMaster'));
+}
 }

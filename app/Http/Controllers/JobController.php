@@ -123,8 +123,8 @@ class JobController extends Controller
         $course = User::with('course')->where('id',json_decode($id))->get()->toArray();
 
         $profile = Profile::with('category')->where('user_id',json_decode($id))->get()->toArray()[0];
-
-     return view('employer.portfolioStudent',compact('course','profile','id'));
+  $theMaster = 'employerMaster';
+     return view('employer.portfolioStudent',compact('course','profile','id','theMaster'));
     }
 
 }

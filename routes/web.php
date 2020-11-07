@@ -56,8 +56,9 @@ Route::group(['middleware' => 'PlacementRole'],function(){
     Route::get('/addStudents','EditController@addStudents');
     Route::get('/addEmployers','EditController@addEmployers');
     Route::get('/addGrades','EditController@addGrades');
-
+   Route::get('/portFolio/{id}','EditController@showPortfolio');
 });
+
 Route::post('/sendMessage','MessageController@sendMessage');
 Route::post('/CreateStudent','EditController@createStudents')->name('upload.students');
 Route::post('/CreateEmployers','EditController@createEmployers')->name('upload.employers');
