@@ -4,7 +4,6 @@
 
 .modal-content{
     z-index: 500;
-    background-color: red !important;
 }
 </style>
     <!-- <link rel="stylesheet" href="{{ URL::asset('css/placementHome.css') }}"> -->
@@ -74,7 +73,10 @@
                                                 </button>
                                             </td>
                                         </tr>
-
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                                         <!-- Modal -->
                    <div style="color: black" class="modal fade " id="myModal_{{$count}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
@@ -137,8 +139,6 @@
                           </div>
 
                       </div>
-                            </td>
-                        </tr>
 
 
                     <div class="modal fade" id="declineModal_{{$count}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -163,8 +163,7 @@
                                             </div>
                                     @endforeach
 
-                                    </tbody>
-                                </table>
+
                             </div>
                         </div>
                     </div>
