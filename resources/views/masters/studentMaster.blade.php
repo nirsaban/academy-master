@@ -31,7 +31,7 @@
                     <div class="logo">
                         <div class="d-flex justify-content-center">
                         <img  onclick="window.location='{{url('/student')}}'"
-                                class="img-responsive"
+                                class="img-fluid"
                                 src="{{asset('images/logo.jpeg')}}"
                                 width="100"
                             />

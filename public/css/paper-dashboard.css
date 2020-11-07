@@ -6128,6 +6128,9 @@ License - nucleoapp.com/license/
     .login-page .container {
         padding-top: 100px !important;
     }
+    .logo .d-flex img {
+        width: 50px;
+    }
 }
 
 @media screen and (max-width: 576px) {
