@@ -33,7 +33,7 @@
 <div class="wrapper">
     <div class="sidebar" data-color="white" data-active-color="danger">
         <div class="logo">
-            <div class="d-flex justify-content-center">
+            <div class="">
                 <img
                     class="img-fluid"
                     src="{{asset('images/logo.jpeg')}}"

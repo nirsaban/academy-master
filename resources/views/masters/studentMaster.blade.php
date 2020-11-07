@@ -29,7 +29,7 @@
             <div class="container-fluid">
                 <div class="navbar-wrapper">
                     <div class="logo">
-                        <div class="">
+                        <div>
                         <img  onclick="window.location='{{url('/student')}}'"
                                 class="img-fluid"
                                 src="{{asset('images/logo.jpeg')}}"

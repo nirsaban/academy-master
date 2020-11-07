@@ -28,7 +28,7 @@
             <div class="container-fluid">
                 <div class="navbar-wrapper">
                     <div class="logo">
-                        <div class="d-flex justify-content-center">
+                        <div class="">
                             <img onclick="window.location='{{url('/placement')}}'"
                                 class="img-fluid"
                                 src="{{asset('images/logo.jpeg')}}"

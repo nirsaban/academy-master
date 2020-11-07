@@ -37,7 +37,7 @@
             <div class="container-fluid">
                 <div class="navbar-wrapper">
                     <div class="logo">
-                        <div class="d-flex justify-content-center">
+                        <div class="">
                             <img
                                 class="img-fluid"
                                 src="{{asset('images/logo.jpeg')}}"
