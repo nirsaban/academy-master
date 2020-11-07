@@ -72,11 +72,10 @@
                                             <td class="text-center">@if($student['grade'] != null )@if($student['grade']['outstanding'] == 1)<i class="fas fa-medal fa-3x"></i>@else<i class="fas fa-times fa-3x"></i>@endif @else --- @endif</td>
                                             <td class="text-center"><a onclick="checkProfileAndGetCategory('{{$student['id']}}','{{$count}}')" href="#aboutModal" data-toggle="modal" data-target="#myModal_{{$count}}"><img style="min-width: 100px; width: 100px; height: 100px; border-radius: 50%" @if($student['profile']['confirm'] == false) style="border:2px solid red" @endif @if(isset($student['profile']['image'])) src="{{asset('images/_'.$student['id'].'/'.$student['profile']['image'])}}" @else src="{{asset('images/avatar.jpg')}}" @endif name="aboutme" width="140" height="140" class="img-circle"></a></td>
 
-                                            @include('placement.partials.profileModal')
-                                            @include('placement.partials.cvModal')
+
                                         </tr>
                                         @endif
-                                        @include('placement.partials.messageModal')
+
                                         @endforeach
 
                                     </tbody>
