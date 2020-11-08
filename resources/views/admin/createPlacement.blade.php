@@ -8,6 +8,9 @@
                     <div class="card card-user">
                         <div class="card-header">
                             <h5 class="card-title" >Add new Placement Users</h5>
+                            @if(session()->has('message'))
+                            <script>Swal.fire(" {{ session()->get('message') }}", "the users created successfully:)", "success")</script>
+                           @endif
                         </div>
                         <div class="card-body">
                             <form method="POST" action="{{ route('upload.placement') }}" enctype="multipart/form-data">

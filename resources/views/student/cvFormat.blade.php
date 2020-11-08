@@ -80,10 +80,7 @@
         </div>
     </div>
     @else
-    <script>
-        alert('dddddddddd')
 
-         </script>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
