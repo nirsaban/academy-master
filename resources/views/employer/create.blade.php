@@ -211,9 +211,5 @@
             </div>
 </div>
 </div>
-
-
-
-
     <script src="{{url('js/createjob.js')}}"></script>
 @endsection

@@ -46,6 +46,8 @@ Route::post('/studentCategory','JobController@studentByCategory');
 Route::get('job/delete/{id}', 'JobController@destroy')->middleware('EmployerRole');;
 Route::post('/profileStudent','JobController@showStudent');
 Route::get('/PortFolioStudent/{id}','JobController@showPortfolio')->middleware('EmployerRole');
+Route::post('/addPq','JobController@addPq')->middleware('EmployerRole');
+// Route::get('/PersonalQuestions','JobController@personalQuistionsIndex')->middleware('EmployerRole');
 
 //placement routes
 Route::group(['middleware' => 'PlacementRole'],function(){
@@ -100,3 +102,4 @@ Route::get('/status','StatusController@getStatus')->middleware('cors');;
 Route::post('/SaveTheDate','LikeController@saveThedate');
 Route::post('/status','LikeController@updateStatus');
 Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
+

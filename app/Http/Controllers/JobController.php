@@ -28,8 +28,9 @@ class JobController extends Controller
         json_decode($request->category_id);
         json_decode($request->course_id);
         $create = Job::create(['user_id'=>Auth::id()] +  $request->all());
-        if($create){
-            return redirect('/employer')->with('message', 'the job as created !!');
+        if($create->id){
+            $id = $create->id;
+            return view("employer.personalQuestions",compact('id'));
         }
     }
     public function getCategory(Request $request){
@@ -127,4 +128,17 @@ class JobController extends Controller
      return view('employer.portfolioStudent',compact('course','profile','id','theMaster'));
     }
 
+
+
+     public function personalQuistionsIndex($id){
+         dd($id);
+     }
+
+     public function addPq(Request $request){
+
+          if(JOB::where('id',$request->id)->update(array('personality' => json_encode($request->pq)))){
+            return response('success', 201)->header('Content-Type', 'text/plain');
+          };
+
+     }
 }
