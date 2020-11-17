@@ -8,6 +8,10 @@
     </div>
 
     <div class="content">
+
+
+
+
         <div class="row d-flex justify-content-center">
           <div class="col-md-4">
             <div class="card card-user">
@@ -25,8 +29,10 @@
                     <form  action="{{ route('image.upload.post') }}"  method="POST" enctype="multipart/form-data">
                         @csrf
                     </form>
-                    <h5 class="title">{{$name}} Profile</h5>
+                    <h3 class="title">{{$name}} Profile</h3>
+                    <h5 class="title"> {{$cat_name}}</h5>
                   </a>
+
                   <p class="description" style="font-size: 16px; font-weight: bold">
                   About me
                   </p>
@@ -38,28 +44,26 @@
                 </p>
               </div>
             </div>
-
-            <div class="card">
-              <div class="card-header d-flex justify-content-center">
-                <h4 class="card-title">My Category</h4>
+            @if($grade[0]['grade'] != null)
+            <div class="card ">
+              <div class="card-header d-flex justify-content-center gradeBox">
+                <h4 class="card-title">
+                    @if($grade[0]['grade']['outstanding'] == 1 )
+                    <i class="fas fa-medal text-success fa-2x"></i>
+                    @endif</h4>
+                <h4 class="card-text good-review-score float-left "><div class="grade"> GPA : {{$grade[0]['grade']['grade'] / 10}}</div></h4>
               </div>
-              <div class="card-body">
+              <div class="card-body ">
                 <ul class="list-unstyled team-members">
                   <li>
-                    <div class="row">
+                    <div class="row ">
                       <div class="col">
-                        <div class="author">
-                        <h5 class="title">
-                            {{$cat_name ?? 'Your category'}}
-                        </h5>
-                        <select name="category_id" id="" class="cat form-control col-6 form-control-sm"  style="display:none">
-                            <option value="">choose your category</option>
-                            @foreach($categories as $category)
-                                <option value="{{$category['id']}}">{{$category['cat_name']}}</option>
-                            @endforeach
-                        </select>
-                        </div>
+                        <div class="author  gradeBox">
 
+                            <div class="evalution">
+                                <h6 class="card-title">	Lecturer Evaluation</h6>
+                                <p class="card-text tt text-wrap">{{$grade[0]['grade']['valuation']}}</p>
+                            </div>
                       </div>
                     </div>
                   </li>
@@ -67,6 +71,9 @@
                 </ul>
               </div>
             </div>
+            @endif
+
+
 
             <div class="card">
               <div class="card-header d-flex justify-content-center">
@@ -96,31 +103,7 @@
               </div>
             </div>
 
-            @if($grade[0]['grade'] != null)
-            <div class="card">
-              <div class="card-header d-flex justify-content-center">
-                <h4 class="card-title">
-                    @if($grade[0]['grade']['outstanding'] == 1 )
-                    <i class="fas fa-medal text-success fa-2x"></i>
-                    @endif</h4>
-              </div>
-              <div class="card-body">
-                <ul class="list-unstyled team-members">
-                  <li>
-                    <div class="row">
-                      <div class="col">
-                        <div class="author">
-                            <h1 class="card-text good-review-score float-left "><div class="grade">{{$grade[0]['grade']['grade'] / 10}}</div></h1>
-                            <h1 class="card-title">	Lecturer Evaluation</h1>
-                            <p class="card-text tt text-wrap">{{$grade[0]['grade']['valuation']}}</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                </ul>
-              </div>
-            </div>
-            @endif
+
 
           </div>
 
@@ -156,7 +139,7 @@
 
             <div class="card">
               <div class="card-header d-flex justify-content-center">
-                <h4 class="card-title">My Educations</h4>
+                <h4 class="card-title">My Education</h4>
               </div>
               <div class="card-body">
                 <ul class="list-unstyled team-members">
@@ -187,7 +170,7 @@
 
             <div class="card">
               <div class="card-header d-flex justify-content-center">
-                <h4 class="card-title">My best project links</h4>
+                <h4 class="card-title">My portFolio</h4>
               </div>
               <div class="card-body">
                 <ul class="list-unstyled team-members">
@@ -212,6 +195,10 @@
 
         </div>
         </div>
-
+    </div>
+</div>
+</div>
+</div>
+</div>
         <script src="{{asset('js/employer.js')}}"></script>
 @endsection

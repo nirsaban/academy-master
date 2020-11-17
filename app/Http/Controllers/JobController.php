@@ -11,6 +11,7 @@ use App\Message;
 use App\Profile;
 use App\User;
 use App\Watch;
+use App\Grade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -70,7 +71,6 @@ class JobController extends Controller
             }
     }
     public function studentByCategory(Request $request){
-
         $id = json_decode($request->category_id);
         $students = Profile::with('user','category')->where('category_id',$id)->where('confirm','=',true)->get();
         if(count($students) == 0){
@@ -78,9 +78,27 @@ class JobController extends Controller
         }
         $title =  'Find the best student for your job !' ;
         $job_id = json_decode($request->job_id);
+        $personality = Job::where('id', $job_id)->value('personality');
+        foreach($students as $key => $student){
+            $studentParse = json_decode($student->personality);
+            $jobParse = json_decode($personality);
+            $studentPer = (array)$studentParse;
+            $job = (array) $jobParse;
+            $student->present = $this->get_the_present_of_match($job,$studentPer);
+            $grade_and_out = Grade::where('sku',$student['user']['sku'])->get(['grade','outstanding'])->toArray();
+            $student['portfolio']  = isset($student['links']) ? true : false;
+            if($grade_and_out){
+                $student['grade'] = json_decode($grade_and_out[0]['grade']);
+                $student['outstanding'] = json_decode($grade_and_out[0]['outstanding']);
+            }else{
+                $student['grade'] = 0;
+             }
+
+        }
+
         $message = Message::where('user_id',Auth::id())->where('read',false)->get();
         $counter = count($message);
-        return view('employer.studentsByCategory',compact('students','title','job_id','counter'));
+        return view('employer.studentsByCategory',compact('students','title','job_id','counter','personality'));
          }
       public function destroy($id)
     {
@@ -90,6 +108,18 @@ class JobController extends Controller
         }else{
             return response('something warn', 500)->header('Content-Type', 'text/plain');
         }
+    }
+    public function get_the_present_of_match($job,$student){
+        $counter = 100;
+        foreach($job as $key => $value){
+             $value = json_decode(trim($value,'%'));
+             $studentValue = json_decode(trim($student[$key],'%'));
+             if($value != $studentValue){
+                 $res = $value - $studentValue;
+                 $counter -= abs($res)/5;
+             }
+        }
+       return $counter;
     }
     public function showStudent(Request $request){
         $profile = [];

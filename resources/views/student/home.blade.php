@@ -1,14 +1,13 @@
 @extends('masters.studentMaster')
 @section('content')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.18.0/css/uikit.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.18.0/css/components/sticky.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.18.0/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.18.0/js/components/grid.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.18.0/js/components/sticky.min.js"></script>
     <!-- <link rel="stylesheet" href="{{ URL::asset('css/homeEmployerTest.css') }}"> -->
 
-    <div class="titre-content" style="margin-top: 150px">
-        <div class="emp-header">
-            <h1>Welcome Back {{Auth::user()->name}}</h1>
-            <h2> {{$title}}</h2>
-        </div>
-    </div>
     @if(session()->has('message'))
     <div class="text-center">
         <div class="blur-out-expand-fwd">
@@ -26,6 +25,47 @@
     @endforeach
 @endif
     <div class="content">
+        {{-- <nav data-uk-sticky id="items" class="uk-navbar">
+            <label class="uk-navbar-content uk-hidden-small">Filter:</label>
+            <ul class="uk-navbar-nav uk-hidden-small">
+                <li data-uk-filter="" class="uk-active"><a href="#">ALL</a></li>
+                <li data-uk-filter="Out"><a href="#">Out Standing</a></li>
+                <li data-uk-filter="Porfolio"><a href="#">Have Porfolio</a></li>
+            </ul>
+            <label class="uk-navbar-content uk-hidden-small">Sort:</label>
+            <ul class="uk-navbar-nav uk-hidden-small">
+                <li data-uk-sort="numbers"><a href="#">Personality Match <i class="uk-icon-sort-numeric-asc"></i></a></li>
+                <li data-uk-sort="numbers:desc"><a href="#">Personality Match <i class="uk-icon-sort-numeric-desc"></i></a></li>
+                <li data-uk-sort="numbers"><a href="#">Grade<i class="uk-icon-sort-alpha-asc"></i></a></li>
+                <li data-uk-sort="numbers:desc"><a href="#">Grade<i class="uk-icon-sort-alpha-desc"></i></a></li>
+            </ul>
+            <div data-uk-dropdown="{mode:'click'}">
+                <a href="#" class="uk-navbar-toggle uk-visible-small"></a>
+                <div class="uk-dropdown uk-dropdown-navbar">
+                    <ul class="uk-nav uk-nav-navbar">
+                        <li class="uk-nav-header">Filter:</li>
+                        <li data-uk-filter="" class="uk-active"><a href="#">ALL</a></li>
+                        <li data-uk-filter="Out"><a href="#">Out Standing</a></li>
+                        <li data-uk-filter="Porfolio"><a href="#">Have Porfolio</a></li>
+                        <li class="uk-nav-divider"></li>
+                    </ul>
+                    <ul class="uk-nav uk-nav-navbar">
+                        <li class="uk-nav-header">Sort:</li>
+                        <li data-uk-sort="numbers"><a href="#">Personality Match <i class="uk-icon-sort-numeric-asc"></i></a></li>
+                        <li data-uk-sort="numbers:desc"><a href="#">Personality Match<i class="uk-icon-sort-numeric-desc"></i></a></li>
+                        <li data-uk-sort="numbers"><a href="#">Salary<i class="uk-icon-sort-alpha-asc"></i></a></li>
+                        <li data-uk-sort="numbers:desc"><a href="#">Salary <i class="uk-icon-sort-alpha-desc"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav> --}}
+
+    <div class="titre-content" style="margin-top: 150px">
+        <div class="emp-header">
+            <h1>Welcome Back {{Auth::user()->name}}</h1>
+
+        </div>
+    </div>
         <div class="row d-flex justify-content-center">
           @foreach($allJobs as $job)
           <div class="col-md-3">

@@ -53,6 +53,7 @@ class ProfileController extends Controller
         if($id != Auth::id()){
             return  redirect('/');
         }
+
         $catId = Profile::where('user_id',$id)->value('category_id');
         $profile['StudentCategory'] =$catId != null ? Profile::where('category_id',$catId)->get()->count(): 0;
         $profile['allJobCat'] = $catId != null ?  Job::where('category_id',$catId)->get()->count() : 0;
@@ -61,11 +62,12 @@ class ProfileController extends Controller
         $profile['watches'] = Watch::where('watched',$id)->get()->count();
         $profile['categories'] = Category::where('course_id',Auth::user()->course_id)->get()->toArray();
         $profile['profile'] = Profile::with('category')->where('user_id',$id)->get()->toArray();
+
         $course = User::with('course')->where('id',$id)->get()->toArray();
         $profile['courseName'] = $course[0]['course']['name'];
         $profile['studentCourse'] = User::where('course_id',Auth::user()->course_id)->get()->count();
         $profile['jobsCourse'] = Job::where('course_id',Auth::user()->course_id)->get()->count();
-        $presentAll = Profile::where('user_id',$id)->get(['category_id','about_me', 'education', 'my_skills', 'links','work_experience','image'])->toArray();
+        $presentAll = Profile::where('user_id',$id)->get(['category_id','about_me', 'education', 'my_skills', 'links','work_experience','image','personality'])->toArray();
         if (isset($presentAll[0])){
             foreach ($presentAll[0] as $key => $value){
                 if($value != null){
@@ -74,7 +76,16 @@ class ProfileController extends Controller
             }
             $profile['present'] = $presents ?? '';
         }
-        return view('student.profileTest',$profile);
+
+
+            if(!isset($profile['profile'][0]['personality'])){
+                return view('student.personality',$profile);
+            }else{
+                return view('student.profileTest',$profile);
+            }
+
+
+
         $profile = [];
         $profile['name'] = User::find($id)->name;
         $profile['cat_name'] = Category::select('cat_name')->where('id',User::find($id)->profile()->value('category_id'))->value('cat_name');
@@ -91,7 +102,9 @@ class ProfileController extends Controller
         }
 
         $profile['newMatches'] = Message::where('user_id',Auth::id())->whereNotNull('student_id')->where('read',false)->get()->toArray();
-        return view('student.profile',$profile);
+
+
+
     }
     public function update(Request $request){
         $id = json_decode($request->id);
@@ -237,5 +250,15 @@ public function addPhoto(Request $request){
     }
 
 
+ }
+
+
+ public function addPqStudent(Request $request){
+
+      if(Profile::updateOrCreate(['user_id'=>$request->id],['personality'=> json_encode($request->pq)])){
+        return response('success', 201)->header('Content-Type', 'text/plain');
+      }else{
+        return response('faild', 201)->header('Content-Type', 'text/plain');
+      };
  }
 }

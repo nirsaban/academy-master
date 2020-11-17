@@ -19,6 +19,9 @@
                                         <div class="form-group">
                                             <div class="custom-file">
                                                 <input type="file" id="file" name="file"  class="custom-file-input" />
+                                                <br>
+                                                <br>
+                                              
                                                 @error('file')
                                                 <br>
                                                 <div class="validation text-danger text-center text-info small" style="font-size: .7rem">{{ $message }}</div>

@@ -281,7 +281,7 @@ $(document).ready(function() {
                 //     div.style.order = 1
                 // };
         }
-        let presentNum = Math.ceil(count.length * 14 + 2)
+        let presentNum = Math.ceil(count.length * 12.5)
         let presentDiv = document.querySelector('.present');
         presentDiv.innerHTML = presentNum + '% ';
         let r = 156 - (count.length * 4);

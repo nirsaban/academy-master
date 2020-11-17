@@ -6629,3 +6629,43 @@ p.overview {
     flex-direction: column;
     align-items: center;
 }
+
+.studentsContainer {
+    display: flex;
+    flex-direction: row !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.card-user {
+    border-radius: 1px !important;
+}
+
+.gradeBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.presentMatch {
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.present {
+    background-color: #f6d1d1;
+    width: 18%;
+}
+
+#items {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px;
+    background-color: #f4f3ef;
+    border-bottom: 1px solid #a3a3a3;
+}
+
+.content {
+    padding: 0 !important;
+}

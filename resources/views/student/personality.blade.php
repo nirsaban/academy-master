@@ -1,4 +1,4 @@
-@extends('masters.employerMaster')
+@extends('masters.studentMaster')
 @section('content')
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -8,8 +8,7 @@
 <div class="content">
     <div class="titre-content" style="margin-top: 100px">
         <div class="emp-header">
-            <h1>Part 2 , Personal requirements</h1>
-
+            <h1>First answer a few personal questions</h1>
         </div>
     </div>
     <section class="signup-step-container">
@@ -41,7 +40,7 @@
 
                             <div class="tab-content" id="main_form">
                                 <div class="tab-pane active" role="tabpanel" id="step1">
-                                    <h3 class="text-center">The level of reliability ? <span class = "reliability"></span></h3>
+                                    <h3 class="text-center">Your level of credibility ? <span class = "reliability"></span></h3>
                                         <div class="tab-pane active" role="tabpanel">
                                             <div class="row text-center">
                                                 <div class="row d-flex flex-column text-center col-md-6 buttons" data-group ="reliability">
@@ -56,7 +55,7 @@
                                 </div>
 
                                 <div class="tab-pane" role="tabpanel" id="step3">
-                                    <h3 class="text-center">Level of performance ? <span class = "performance"></span></h3>
+                                    <h3 class="text-center">Your level of performance ? <span class = "performance"></span></h3>
                                     <div class="tab-pane active" role="tabpanel">
                                         <div class="row text-center">
                                             <div class="row d-flex flex-column text-center col-md-6 buttons"  data-group ="performance">
@@ -71,7 +70,7 @@
 
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="step2">
-                                    <h3 class="text-center">The importance of social skills <span class ="social"></span></h3>
+                                    <h3 class="text-center">The level of your social skills <span class ="social"></span></h3>
                                     <div class="tab-pane active" role="tabpanel">
                                         <div class="row text-center">
                                             <div class="row d-flex flex-column text-center col-md-6 buttons" data-group ="social">
@@ -86,7 +85,7 @@
 
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="step4">
-                                    <h3 class="text-center" >Ability to work under pressure ? <span class="pressure"></span></h3>
+                                    <h3 class="text-center" >Your ability to work under pressure ? <span class="pressure"></span></h3>
                                     <div class="tab-pane active" role="tabpanel">
                                         <div class="row text-center">
                                             <div class="row d-flex flex-column text-center col-md-6 buttons "  data-group ="pressure">
@@ -101,7 +100,7 @@
 
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="step5">
-                                    <h3 class="text-center">spatial vision ? <span class="vision" ></span></h3>
+                                    <h3 class="text-center">Your spatial vision level ? <span class="vision" ></span></h3>
                                     <div class="tab-pane active" role="tabpanel">
                                         <div class="row text-center">
                                             <div class="row d-flex flex-column text-center col-md-6 buttons" data-group ="vision">
@@ -199,15 +198,15 @@ allLevels[thePart] = thePresent
 console.log(allLevels)
 }
 function submitQuistions() {
-     let url = location.origin + '/addPq';
+     let url = location.origin + '/addPqStudent';
      console.log(allLevels)
     if(Object.keys(allLevels).length < 5){
         Swal.fire('Please Fill All input','','error')
     }else{
-        axios({method:'post',url:url,data:{pq:allLevels,id:<?php echo $id;?>}}).then(({data})=>{
+        axios({method:'post',url:url,data:{pq:allLevels,id:<?php echo Auth::id();?>}}).then(({data})=>{
             console.log(data)
         if(data == 'success'){
-            window.location.href = location.origin + '/employer';
+            location.reload()
         }else{
             Swal.fire({title: 'the course as been updated successfully', text: `${data}!`, icon: 'success', position: 'center'}).then(()=>{
                 location.reload()

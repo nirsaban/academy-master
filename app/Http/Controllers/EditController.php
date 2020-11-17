@@ -34,6 +34,7 @@ class EditController extends Controller
             return !is_null($v[0]) && $v[0] !== '';
              });
         $header = array_shift($rows);
+
         foreach ($rows as $row){
             if(count($row) != count($header)){
                 return Redirect::back()->withErrors(["Your csv file not valid"]);

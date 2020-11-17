@@ -34,6 +34,8 @@ Route::post('addPhoto','ProfileController@addPhoto')->name('addPhoto');
 Route::post('addInput','ProfileController@addInput');
 Route::get('getAllDataPort/{id}','ProfileController@getDataPort');
 Route::get('deletePort/{id}','ProfileController@deletePort');
+Route::post('addPqStudent','ProfileController@addPqStudent');
+
 //employer routes
 Route::get('/employer','PagesController@employerHome')->middleware('EmployerRole');
 Route::get('/job/create','JobController@showForm')->middleware('EmployerRole');;

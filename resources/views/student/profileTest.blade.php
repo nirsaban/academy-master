@@ -129,9 +129,15 @@
                             <div class="col-sm-12 col-md-6 mt-3">
                                 <div class="d-flex align-items-center  justify-content-between">
                                     <h5 class="text-dark  text-underline m-0">Build your portfolio</h5>
-                                    <div class="btn btn-info btn-round ml-2" data-toggle="modal" onclick="window.location='{{url('/BuildPortFolio/'.Auth::id())}}'">
+                                    @if($profile[0]['category'])
+                                    <div class="btn btn-info btn-round ml-2" data-toggle="modal"  onclick="window.location='{{url('/BuildPortFolio/'.Auth::id())}}'">
                                         <i class="fa fa-edit fa-lg"></i>
                                     </div>
+                                    @else
+                                    <div class="btn btn-info btn-round ml-2" data-toggle="modal"  onclick="Swal.fire('Oops...','first you must fill your category ','error')">
+                                        <i class="fa fa-edit fa-lg"></i>
+                                    </div>
+                                    @endif
                                 </div>
                                 <div class="pr-3 text-justify">
                                     <div class="links_content"  id="pLink">
@@ -206,13 +212,14 @@
                </style>
                <div class="row parent-percent">
                     <div class="compliteProf child-percent">
-                        <div data-color = "rgba(255, 0, 0, 0.2)" class=" percent-item category_id item">Category</div>
-                        <div data-color = "rgba(255, 0, 0, 0.4)" class=" percent-item about_me item">about</div>
-                        <div data-color = "rgba(255, 0, 0, 0.5)" class=" percent-item education item">education</div>
-                        <div data-color = "rgba(255, 0, 0, 0.6)" class=" percent-item my_skills item">skills</div>
-                        <div data-color = "rgba(255, 0, 0, 0.7)" class=" percent-item links item">links</div>
-                        <div data-color = "rgba(255, 0, 0, 0.8)" class=" percent-item work_experience item" >works</div>
-                        <div  data-color = "rgba(255, 0, 0, 0.9)" class=" percent-item image item">image</div>
+                        <div data-color = "rgba(51, 214, 255,0.2)" class=" percent-item personality item">personality</div>
+                        <div data-color = "rgba(51, 214, 255,0.3)" class=" percent-item category_id item">Category</div>
+                        <div data-color = "rgba(51, 214, 255,0.4)" class=" percent-item about_me item">about</div>
+                        <div data-color = "rgba(51, 214, 255,0.5)" class=" percent-item education item">education</div>
+                        <div data-color = "rgba(51, 214, 255,0.6)" class=" percent-item my_skills item">skills</div>
+                        <div data-color = "rgba(51, 214, 255,0.7)" class=" percent-item links item">links</div>
+                        <div data-color = "rgba(51, 214, 255,0.8)" class=" percent-item work_experience item" >works</div>
+                        <div  data-color = "rgba(51, 214, 255,0.9)a" class=" percent-item image item">image</div>
                         <div style="font-size: 1.7rem"  class=" percent-item present item">0%</div>
                     </div>
                </div>
