@@ -55,7 +55,7 @@ function resetProfile(id) {
 }
 
 
-function addLikeTojob(rilation, beloved, love) {
+function addLikeTojob(role, job_id, student_id) {
     var form = this;
     Swal.fire({
         title: "Are you sure you like this job?",
@@ -72,9 +72,9 @@ function addLikeTojob(rilation, beloved, love) {
                 method: 'post',
                 url: url,
                 data: {
-                    beloved: beloved,
-                    love: love,
-                    rilation: rilation
+                    job_id: job_id,
+                    student_id: student_id,
+                    role: role
                 }
             }).then(({ data }) => {
                 if (data.trim() == 'You dont can send more then 1 like') {

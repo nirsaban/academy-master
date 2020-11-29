@@ -3,7 +3,7 @@
 
     <!-- <main style="margin-top: 5rem" role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"> -->
     <!-- <link rel="stylesheet" href="{{ URL::asset('css/placementHome.css') }}"> -->
-    
+
     <div class="content">
             <div class="row">
                 <div class="col-md-12">
@@ -19,7 +19,7 @@
                                         class="form-control"
                                         placeholder="Search..."
                                         style="padding: 0; margin-bottom: 0"
-                                        id="myInput" 
+                                        id="myInput"
                                         onkeyup="myFunction()"
                                     />
                                     <div class="input-group-append">
@@ -57,7 +57,7 @@
                                                 <button data-toggle="modal" data-target="#exampleModal_{{$count}}" type="button" class="btn btn-primary btn-round bg-warning">
                                                         <i data-toggle="modal" data-target="#exampleModal_{{$count}}"  class="nc-icon nc-ruler-pencil" style="font-size: 0.6rem"></i>
                                                 </button>
-                                                <button onclick="deleteCourse('{{$course['id']}}',this.dataset)" data-courseName="{{$course['name']}" type="button" class="btn btn-primary btn-round bg-danger ml-2">
+                                                <button onclick="deleteCourse('{{$course['id']}}',this.dataset)" data-courseName="{{$course['name']}}" type="button" class="btn btn-primary btn-round bg-danger ml-2">
                                                     <i class="nc-icon nc-simple-delete" style="font-size: 0.6rem"></i>
                                                 </button>
                                                 </td>
@@ -104,7 +104,7 @@
             </div>
         </div>
 
-        
+
 
     <script>
 

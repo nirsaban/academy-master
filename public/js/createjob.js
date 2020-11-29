@@ -1,4 +1,6 @@
-window.onload = function init() {}
+window.onload = function init() {
+
+}
 
 function addRequire() {
     document.getElementById('disabled').style.display = 'block'

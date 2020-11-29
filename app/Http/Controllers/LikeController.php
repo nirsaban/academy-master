@@ -3,25 +3,57 @@
 namespace App\Http\Controllers;
 
 use App\Like;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
 public function insert(Request $request){
-     $checkLike =  Like::where('love',$request->love)->where('beloved',$request->beloved)->first();
-    if(!$checkLike){
-    $like = new Like;
-    $like->love = $request->love;
-    $like->beloved = $request->beloved;
-    $like->rilation = $request->rilation;
-    if($like->save()){
-        return response('your Like add successfully',201)->header('Content-Type', 'text/plain');
+    $role = $request->role;
+    $stu_id = $request->student_id;
+    $job_id = $request->job_id;
+    if($role == 'student'){
+
+        $checkLike =  DB::select("SELECT * FROM `likes` WHERE `student_id` = ? AND `job_id` = ? AND(`role` = 'student' OR `role` = 'match')",[$stu_id,$job_id]);
+        if($checkLike){
+            return response('You dont can send more then 1 like ',201)->header('Content-Type', 'text/plain');
+        }else{
+            $checkMatch = Like::where('student_id',$request->student_id)->where('job_id',$request->job_id)->where('role','employer')->get()->toArray();
+            if(!empty($checkMatch)){
+              Like::where('id',$checkMatch[0]['id'])->update(['role'=>'match']);
+              return response('your Like add successfully',201)->header('Content-Type', 'text/plain');
+            }else{
+                $like = new Like;
+                $like->student_id = $request->student_id;
+                $like->job_id = $request->job_id;
+                $like->role = 'student';
+                if($like->save()){
+                    return response('your Like add successfully',201)->header('Content-Type', 'text/plain');
+                };
+            }
+        }
+
     }else{
-        return response('something warng',500)->header('Content-Type', 'text/plain');
+
+        $checkLike =  DB::select("SELECT * FROM `likes` WHERE `student_id` = ? AND `job_id` = ? AND(`role` = 'employer' OR `role` = 'match')",[$stu_id,$job_id]);
+        if($checkLike){
+            return response('You dont can send more then 1 like ',201)->header('Content-Type', 'text/plain');
+        }else{
+            $checkMatch = Like::where('student_id',$request->student_id)->where('job_id',$request->job_id)->where('role','student')->get()->toArray();
+            if(!empty($checkMatch)){
+              Like::where('id',$checkMatch[0]['id'])->update(['role'=>'match']);
+              return response('your Like add successfully',201)->header('Content-Type', 'text/plain');
+            }else{
+                $like = new Like;
+                $like->student_id = $request->student_id;
+                $like->job_id = $request->job_id;
+                $like->role = 'employer';
+                if($like->save()){
+                    return response('your Like add successfully',201)->header('Content-Type', 'text/plain');
+                };
+            }
+        }
     }
-  }else{
-    return response('You dont can send more then 1 like ',201)->header('Content-Type', 'text/plain');
-  }
  }
 public function saveThedate(Request $request){
   $date = Like::where('id',$request->id)->update(['interview_date'=>$request->date]);

@@ -17,7 +17,7 @@
                                         class="form-control"
                                         placeholder="Search..."
                                         style="padding: 0; margin-bottom: 0"
-                                        id="myInput" 
+                                        id="myInput"
                                         onkeyup="myFunction()"
                                     />
                                     <div class="input-group-append">
@@ -64,7 +64,7 @@
                                         </th>
                                     </thead>
                                     <tbody>
-                                    <?php $count  = 0;?>
+                <?php $count  = 0;?>
                 @foreach($perfectMatches as $match)
                 <?php $count++ ?>
                 <tr>
@@ -194,7 +194,7 @@
 
     </script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-        
+
     </body>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{{asset('js/placement.js')}}"></script>

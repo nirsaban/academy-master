@@ -25,40 +25,40 @@
     @endforeach
 @endif
     <div class="content">
-        {{-- <nav data-uk-sticky id="items" class="uk-navbar">
+        <nav data-uk-sticky id="items" class="uk-navbar">
             <label class="uk-navbar-content uk-hidden-small">Filter:</label>
-            <ul class="uk-navbar-nav uk-hidden-small">
+            {{-- <ul class="uk-navbar-nav uk-hidden-small">
                 <li data-uk-filter="" class="uk-active"><a href="#">ALL</a></li>
                 <li data-uk-filter="Out"><a href="#">Out Standing</a></li>
                 <li data-uk-filter="Porfolio"><a href="#">Have Porfolio</a></li>
-            </ul>
+            </ul> --}}
             <label class="uk-navbar-content uk-hidden-small">Sort:</label>
             <ul class="uk-navbar-nav uk-hidden-small">
                 <li data-uk-sort="numbers"><a href="#">Personality Match <i class="uk-icon-sort-numeric-asc"></i></a></li>
                 <li data-uk-sort="numbers:desc"><a href="#">Personality Match <i class="uk-icon-sort-numeric-desc"></i></a></li>
-                <li data-uk-sort="numbers"><a href="#">Grade<i class="uk-icon-sort-alpha-asc"></i></a></li>
-                <li data-uk-sort="numbers:desc"><a href="#">Grade<i class="uk-icon-sort-alpha-desc"></i></a></li>
+                {{-- <li data-uk-sort="numbers"><a href="#">Grade<i class="uk-icon-sort-alpha-asc"></i></a></li>
+                <li data-uk-sort="numbers:desc"><a href="#">Grade<i class="uk-icon-sort-alpha-desc"></i></a></li> --}}
             </ul>
             <div data-uk-dropdown="{mode:'click'}">
                 <a href="#" class="uk-navbar-toggle uk-visible-small"></a>
                 <div class="uk-dropdown uk-dropdown-navbar">
                     <ul class="uk-nav uk-nav-navbar">
                         <li class="uk-nav-header">Filter:</li>
-                        <li data-uk-filter="" class="uk-active"><a href="#">ALL</a></li>
+                        {{-- <li data-uk-filter="" class="uk-active"><a href="#">ALL</a></li>
                         <li data-uk-filter="Out"><a href="#">Out Standing</a></li>
                         <li data-uk-filter="Porfolio"><a href="#">Have Porfolio</a></li>
-                        <li class="uk-nav-divider"></li>
+                        <li class="uk-nav-divider"></li> --}}
                     </ul>
                     <ul class="uk-nav uk-nav-navbar">
                         <li class="uk-nav-header">Sort:</li>
                         <li data-uk-sort="numbers"><a href="#">Personality Match <i class="uk-icon-sort-numeric-asc"></i></a></li>
                         <li data-uk-sort="numbers:desc"><a href="#">Personality Match<i class="uk-icon-sort-numeric-desc"></i></a></li>
-                        <li data-uk-sort="numbers"><a href="#">Salary<i class="uk-icon-sort-alpha-asc"></i></a></li>
-                        <li data-uk-sort="numbers:desc"><a href="#">Salary <i class="uk-icon-sort-alpha-desc"></i></a></li>
+                        {{-- <li data-uk-sort="numbers"><a href="#">Salary<i class="uk-icon-sort-alpha-asc"></i></a></li>
+                        <li data-uk-sort="numbers:desc"><a href="#">Salary <i class="uk-icon-sort-alpha-desc"></i></a></li> --}}
                     </ul>
                 </div>
             </div>
-        </nav> --}}
+        </nav>
 
     <div class="titre-content" style="margin-top: 150px">
         <div class="emp-header">
@@ -66,14 +66,15 @@
 
         </div>
     </div>
+    <div class="studentsContainer row d-flex justify-content-center" data-uk-grid="{gutter: 20, controls: '#items', duration: 500}">
         <div class="row d-flex justify-content-center">
           @foreach($allJobs as $job)
-          <div class="col-md-3">
+          <div data-numbers="{{$job->present}}" class="col-sm-3">
             <div class="card card-user">
               <div class="image">
                 <img src="{{asset('/images/Job-Hunting-Illustration.jpg')}}" alt="...">
               </div>
-
+              <div class="presentMatchStudent"><div class="present">{{$job->present}}%</div></div>
               <div class="card-body" style="margin-top: 80px">
                 <div class="author">
                   <a href="#">
@@ -85,19 +86,17 @@
                 </div>
                 <p class="description">
                   <i class="nc-icon nc-briefcase-24"></i>&nbsp;&nbsp;&nbsp;
-                  <span>{{$job['description']}}</span>
+                  <span>{{$job['description']}} </span>
                 </p>
                 @if(isset($userCategory) && $userCategory != null)
                 <p class="description">
-                <i class="nc-icon nc-caps-small"></i>&nbsp;&nbsp;&nbsp;
-                    <span>
-                    <!-- <ol> -->
+
+                   <ul class="description "style="list-style-type:none;padding:.3rem">
                         @foreach(json_decode($job->requirements) as $require)
-                        {{$require}}
+                        <li ><span style="margin-right: 1rem"><i class="fas fa-asterisk"></i></span>{{$require}} </li>
                         @endforeach
-                    <!-- </ol> -->
-                    </span>
-                </p>
+                    </ul>
+                    </p>
                 <p class="description">
                 <i class="nc-icon nc-pin-3"></i>&nbsp;&nbsp;&nbsp;
                     <span>{{$job['location']}}</span>
@@ -125,7 +124,7 @@
                         @if(isset($userCategory) && $userCategory != null)
                         <a href="#" class="btn btn-floating pulse " style="background-color: #007bff !important">
                             <i class="material-icons   col  s2 large text-red center"
-                             onclick="addLikeTojob(0,'{{$job->id}}','{{Auth::id()}}')">thumb_up</i>
+                             onclick="addLikeTojob('student','{{$job->id}}','{{Auth::id()}}')">thumb_up</i>
                         </a>
                         @else
                         <a href="#" class="btn btn-floating pulse " style="background-color: #007bff !important">
@@ -142,6 +141,7 @@
       </div>
       @endforeach
       </div>
+    </div>
     </div>
 <script>
     function deleteJob(data) {

@@ -6653,9 +6653,20 @@ p.overview {
     font-size: 1.2rem;
 }
 
+.presentMatchStudent {
+    width: 100%;
+    font-size: 1.2rem;
+}
+
 .present {
     background-color: #f6d1d1;
     width: 18%;
+}
+
+.presentMatchStudent>.present {
+    background-color: #927bd6;
+    color: #FFF;
+    width: 12%;
 }
 
 #items {

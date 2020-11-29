@@ -1,4 +1,4 @@
-function addLikeToStudent(rilation, beloved, love) {
+function addLikeToStudent(role, student_id, job_id) {
 
 
     swal.fire({
@@ -16,9 +16,9 @@ function addLikeToStudent(rilation, beloved, love) {
                 method: 'post',
                 url: url,
                 data: {
-                    beloved: beloved,
-                    love: love,
-                    rilation: rilation
+                    student_id: student_id,
+                    job_id: job_id,
+                    role: role
                 }
             }).then(({ data }) => {
                 if (data.trim() == 'You dont can send more then 1 like') {
@@ -39,4 +39,10 @@ function addLikeToStudent(rilation, beloved, love) {
         }
     });
 
+}
+
+
+window.onready = function init() {
+    const cities = require('cities.json');
+    console.log(cities)
 }

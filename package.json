@@ -27,6 +27,7 @@
         "@amcharts/amcharts4-geodata": "^4.1.15",
         "@fortawesome/fontawesome-free": "^5.13.0",
         "chartjs-plugin-datalabels": "^0.7.0",
+        "cities.json": "^1.1.5",
         "materialize-css": "^1.0.0-rc.2",
         "sweetalert": "^2.1.2"
     }

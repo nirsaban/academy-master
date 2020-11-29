@@ -8,8 +8,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.18.0/js/components/grid.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.18.0/js/components/sticky.min.js"></script>
 
-
     <div class="content">
+
         <nav data-uk-sticky id="items" class="uk-navbar">
             <label class="uk-navbar-content uk-hidden-small">Filter:</label>
             <ul class="uk-navbar-nav uk-hidden-small">
@@ -21,8 +21,8 @@
             <ul class="uk-navbar-nav uk-hidden-small">
                 <li data-uk-sort="numbers"><a href="#">Personality Match <i class="uk-icon-sort-numeric-asc"></i></a></li>
                 <li data-uk-sort="numbers:desc"><a href="#">Personality Match <i class="uk-icon-sort-numeric-desc"></i></a></li>
-                <li data-uk-sort="numbers"><a href="#">Grade<i class="uk-icon-sort-alpha-asc"></i></a></li>
-                <li data-uk-sort="numbers:desc"><a href="#">Grade<i class="uk-icon-sort-alpha-desc"></i></a></li>
+                <li data-uk-sort="grade"><a href="#">Grade<i class="uk-icon-sort-alpha-asc"></i></a></li>
+                <li data-uk-sort="grade:desc"><a href="#">Grade<i class="uk-icon-sort-alpha-desc"></i></a></li>
             </ul>
             <div data-uk-dropdown="{mode:'click'}">
                 <a href="#" class="uk-navbar-toggle uk-visible-small"></a>
@@ -39,8 +39,8 @@
                         <li class="uk-nav-header">Sort:</li>
                         <li data-uk-sort="numbers"><a href="#">Personality Match <i class="uk-icon-sort-numeric-asc"></i></a></li>
                         <li data-uk-sort="numbers:desc"><a href="#">Personality Match<i class="uk-icon-sort-numeric-desc"></i></a></li>
-                        <li data-uk-sort="numbers"><a href="#">Grade<i class="uk-icon-sort-alpha-asc"></i></a></li>
-                        <li data-uk-sort="numbers:desc"><a href="#">Grade <i class="uk-icon-sort-alpha-desc"></i></a></li>
+                        <li data-uk-sort="grade"><a href="#">Grade<i class="uk-icon-sort-alpha-asc"></i></a></li>
+                        <li data-uk-sort="grade:desc"><a href="#">Grade <i class="uk-icon-sort-alpha-desc"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -53,7 +53,8 @@
 
             <div class="studentsContainer row d-flex justify-content-center" data-uk-grid="{gutter: 20, controls: '#items', duration: 500}">
         @foreach($students as $key => $student)
-           <div @if($student['outstanding'] == 1) data-uk-filter="Out" @endif @if($student['portfolio']) data-uk-filter="Porfolio" @endif   data-numbers="{{$student->present}}" data-numbers="{{$student['grade']}}"  class="col-md-2">
+
+           <div @if($student['outstanding'] == 1) data-uk-filter="Out" @endif @if($student['portfolio']) data-uk-filter="Porfolio" @endif   data-numbers="{{$student->present}}" data-grade="{{$student['grade']}}"  class="col-md-2">
              <div class="card card-user">
               <div class="image">
                 <img src="{{asset('images/damir-bosnjak.jpg')}}" alt="...">

@@ -8,6 +8,9 @@ use App\Grade;
 use App\Job;
 use App\Profile;
 use App\User;
+use App\Message;
+use App\Like;
+use App\Watch;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -277,6 +280,20 @@ class EditController extends Controller
         Course::where('id',json_decode($request->id))->delete();
         Job::where('course_id',json_decode($request->id))->delete();
         Category::where('course_id',json_decode($request->id))->delete();
+        $users =  User::where('course_id',json_decode($request->id))->get()->toArray();
+        if(!empty($user)){
+            foreach($users as $key => $user){
+                 $id = json_decode($user['id']);
+                 $sku = json_decode($user['sku']);
+                 Message::where('user_id',$id)->delete();
+                 Like::where('love',$id)->orWhere('beloved',$id)->delete();
+                 Profile::where('user_id',$id)->delete();
+                 Grade::where('sku',$sku)->delete();
+                 Watch::where('watched',$id)->delete();
+                 User::where('id',$id)->delete();
+                }
+
+            }
         User::where('course_id',json_decode($request->id))->delete();
         return response('all from this course as been deleted',201);
     }
@@ -302,8 +319,27 @@ class EditController extends Controller
     }
     public function deleteCategory(Request $request){
         Job::where('category_id',json_decode($request->id))->delete();
+        $courseId =  Category::where('id',json_decode($request->id))->value('course_id');
+        $profiles = Profile::where('category_id',json_decode($request->id))->get()->toArray();
+        if(!empty($profiles)){
+          foreach($profiles as $key => $profile){
+            $id = $profile['user_id'];
+            Message::where('user_id',$id)->delete();
+            Like::where('love',$id)->orWhere('beloved',$id)->delete();
+           $message = new Message;
+           $message->user_id =  $id;
+           $message->message = 'your category deleted, please choose new one';
+           $message->save();
+          }
+          Profile::where('user_id',$id)->update(['category_id',null]);
+        }
         Category::where('id',json_decode($request->id))->delete();
-        Profile::where('category_id',json_decode($request->id))->delete();
+         $Allcategories = Category::where('course_id',$courseId)->get();
+         if($Allcategories->count() == 0){
+         $this->deleteCourse($courseId);
+         }
+
+
         return response('all from this course as been deleted',201);
     }
     public function uploadCvFormat(Request $request){
