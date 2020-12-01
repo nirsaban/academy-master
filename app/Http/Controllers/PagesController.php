@@ -107,6 +107,7 @@ class PagesController extends Controller
   public function adminHome(){
        $courses = Course::with('job','user')->get()->toArray();
        $success = Like::with('user','job')->where('status',true)->get()->toArray();
+
       return view('admin.adminHome',compact('courses','success'));
   }
 }
