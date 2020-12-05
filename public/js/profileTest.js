@@ -30,11 +30,9 @@ function updateAboutMe(id) {
     });
 }
 
-function addInputsEdu() {
-    let input = document.createElement('input')
-    input.classList += 'col-12 p-2 mb-2 field form__field edu';
-    input.placeholder = 'add Education'
-    document.querySelector('.educationsInputs').appendChild(input)
+function addInputsEdu(event) {
+    let url = location.origin + '/getInputsEdu';
+    $(".educationsInputs").append($("<div>").load(`${url}`));
 }
 
 function addInputsLink() {
@@ -59,23 +57,42 @@ function addInputsSkill() {
 }
 
 function updateEducation(id) {
-    let eduArr = []
-    document.querySelectorAll('.edu').forEach(ed => {
-        eduArr.push(ed.value)
-    })
-    let url = location.origin + '/profile/update';
-    axios({
-        method: 'post',
-        url: url,
-        data: {
-            item: 'education',
-            id: id,
-            value: JSON.stringify(eduArr)
-        }
-    }).then(({ data }) => {
-        location.reload();
-    });
 
+    let educationArr = []
+    let theAllInputs = document.querySelectorAll('.educationsInputs > div > .col-lg-12');
+    let errorDate = false;
+    theAllInputs.forEach(eduDiv => {
+        let eduObj = {};
+        let FieldStudy = $(eduDiv).find('input[type="text"]').val()
+        let startYear = $(eduDiv).find('.start').find(":selected").text();
+        let endYear = $(eduDiv).find('.end').find(":selected").text();
+        eduObj['FieldStudy'] = FieldStudy
+        eduObj['startYear'] = startYear
+        eduObj['endYear'] = endYear
+        educationArr.push(eduObj)
+    })
+    let allStart = document.querySelectorAll('.start');
+    allStart.forEach(start => {
+        if (start.style.border == '1px solid red') {
+            document.getElementById('errorEdu').textContent = 'you have error in yout date input'
+            errorDate = true
+        }
+    })
+    if (!errorDate) {
+        let url = location.origin + '/profile/update';
+        axios({
+            method: 'post',
+            url: url,
+            data: {
+                item: 'education',
+                id: id,
+                value: JSON.stringify(educationArr)
+            }
+        }).then(({ data }) => {
+            location.reload();
+        });
+
+    }
 }
 
 function updateLinks(id) {
@@ -145,4 +162,31 @@ function checkPassword(password) {
     } else {
         password.style.backgroundColor = 'rgba(255,0,0,.3)'
     }
+}
+
+
+
+function checkTheStart(elem) {
+    let theStart = JSON.parse($(elem.parentNode).find('.start').find(':selected').text());
+    let theEnd = JSON.parse(elem.value)
+    if (theStart > theEnd) {
+        $(elem.parentNode).find('.start').css("border", "1px solid red");
+    } else {
+        $(elem.parentNode).find('.start').css("border", "1px solid black");
+    }
+}
+
+function checkTheEnd(elem) {
+    let theEnd = JSON.parse($(elem.parentNode).find('.end').find(':selected').text());
+    if (theEnd) {
+        let theStart = JSON.parse(elem.value)
+        if (theStart < theEnd || theEnd == theStart) {
+            $(elem).css("border", "1px solid black");
+            $('#errorEdu').empty()
+        } else {
+            $(elem).css("border", "1px solid red");
+        }
+    }
+
+
 }

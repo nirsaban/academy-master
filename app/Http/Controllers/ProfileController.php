@@ -79,8 +79,10 @@ class ProfileController extends Controller
 
 
             if(!isset($profile['profile'][0]['personality'])){
+
                 return view('student.personality',$profile);
             }else{
+
                 return view('student.profileTest',$profile);
             }
 
@@ -110,7 +112,6 @@ class ProfileController extends Controller
         $id = json_decode($request->id);
         $col = $request->item;
         $val = $col == 'category_id' ? json_decode($request->value): $request->value;
-
         if(Profile::updateOrCreate(['user_id' => $id],["$col" => $val])){
             return response('success update', 201)->header('Content-Type', 'text/plain');
         }else{
@@ -260,5 +261,10 @@ public function addPhoto(Request $request){
       }else{
         return response('faild', 201)->header('Content-Type', 'text/plain');
       };
+ }
+
+ public function getInputsEdu(){
+
+    return view('student.partials/inputEducation');
  }
 }

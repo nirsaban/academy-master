@@ -35,6 +35,8 @@ Route::post('addInput','ProfileController@addInput');
 Route::get('getAllDataPort/{id}','ProfileController@getDataPort');
 Route::get('deletePort/{id}','ProfileController@deletePort');
 Route::post('addPqStudent','ProfileController@addPqStudent');
+Route::get('getInputsEdu','ProfileController@getInputsEdu');
+
 
 //employer routes
 Route::get('/employer','PagesController@employerHome')->middleware('EmployerRole');
