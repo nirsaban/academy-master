@@ -1,6 +1,6 @@
 <div class="row col-lg-12" >
-    <input type="text"    class="col-lg-5 p-1 mb-2 field form__field " placeholder="Field of Study" >
-      <select class="col-lg-3 p-1 mb-2 start field form__field Edu" data-selector = "Edu" style="margin-right: 4px;margin-left:4px" onchange="checkTheEnd(this)">
+    <input type="text"    class="col-lg-5 p-1 mb-2 field form__field " placeholder="The job ..." >
+      <select class="col-lg-3 p-1 mb-2 start field form__field work" data-selector = "Work" style="margin-right: 4px;margin-left:4px" onchange="checkTheEnd(this)">
          <option value="">Start year</option>
         <option value="2020">2020</option>
         <option value="2019">2019</option>
@@ -56,7 +56,7 @@
 
       </select>
 
-    <select class="col-lg-3 p-1 mb-2 field end  form__field edu" data-selector="Edu" onchange="checkTheStart(this)">
+    <select class="col-lg-3 p-1 mb-2 field end  form__field work" data-selector = "Work" onchange="checkTheStart(this)">
         <option value="">End year</option>
        <option value="2020">2020</option>
        <option value="2019">2019</option>

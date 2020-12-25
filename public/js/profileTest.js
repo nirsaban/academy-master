@@ -43,10 +43,8 @@ function addInputsLink() {
 }
 
 function addInputsWorks() {
-    let input = document.createElement('input')
-    input.classList += 'col-12 field form__field work p-2 mb-2';
-    input.placeholder = 'add work experience...'
-    document.querySelector('.worksInputs').appendChild(input)
+    let url = location.origin + '/getInputsWork';
+    $(".worksInputs").append($("<div>").load(`${url}`));
 }
 
 function addInputsSkill() {
@@ -73,11 +71,12 @@ function updateEducation(id) {
     })
     let allStart = document.querySelectorAll('.start');
     allStart.forEach(start => {
-        if (start.style.border == '1px solid red') {
+        if (start.style.border == '1px solid red' || start.value == '') {
             document.getElementById('errorEdu').textContent = 'you have error in yout date input'
             errorDate = true
         }
     })
+
     if (!errorDate) {
         let url = location.origin + '/profile/update';
         axios({
@@ -116,22 +115,43 @@ function updateLinks(id) {
 }
 
 function updateWorks(id) {
+
     let worksArr = []
-    document.querySelectorAll('.work').forEach(work => {
-        worksArr.push(work.value)
+    let theAllInputs = document.querySelectorAll('.worksInputs > div > .col-lg-12');
+    let errorDate = false;
+    theAllInputs.forEach(workDiv => {
+        let workObj = {};
+        let theJob = $(workDiv).find('input[type="text"]').val()
+        let startYear = $(workDiv).find('.start').find(":selected").text();
+        let endYear = $(workDiv).find('.end').find(":selected").text();
+        workObj['theJob'] = theJob
+        workObj['startYear'] = startYear
+        workObj['endYear'] = endYear
+        worksArr.push(workObj)
     })
-    let url = location.origin + '/profile/update';
-    axios({
-        method: 'post',
-        url: url,
-        data: {
-            item: 'work_experience',
-            id: id,
-            value: JSON.stringify(worksArr)
+    let allStart = document.querySelectorAll('.start');
+    allStart.forEach(start => {
+        if (start.style.border == '1px solid red' || start.value == '') {
+            document.getElementById('errorWork').textContent = 'you have an error in your date inputs'
+            errorDate = true
         }
-    }).then(({ data }) => {
-        location.reload();
-    });
+    })
+
+    if (!errorDate) {
+        let url = location.origin + '/profile/update';
+        axios({
+            method: 'post',
+            url: url,
+            data: {
+                item: 'work_experience',
+                id: id,
+                value: JSON.stringify(worksArr)
+            }
+        }).then(({ data }) => {
+            location.reload();
+        });
+
+    }
 }
 
 function updateSkills(id) {
@@ -182,7 +202,7 @@ function checkTheEnd(elem) {
         let theStart = JSON.parse(elem.value)
         if (theStart < theEnd || theEnd == theStart) {
             $(elem).css("border", "1px solid black");
-            $('#errorEdu').empty()
+            $(`#error${elem.dataset.selector}`).empty()
         } else {
             $(elem).css("border", "1px solid red");
         }

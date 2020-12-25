@@ -116,8 +116,9 @@ foreach ($linksArr as $key => $value) {
     </header>
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
-        <div class="container mb-4">
+        <div class="container mb-4">`
         <input type="text" class="form-control mb-3" id="title_1"  @if(isset($title_1)) value = " {{$title_1}}" @endif  placeholder="Enter first title" onblur = "saveInput(1,'title',this.value)">
+        {{-- <input type="text" class="form-control col-md-3 mb-3" id="hashtag_1"   placeholder="#hashtags" onblur = "saveInput(1,'hashtag',this.value,'{{$course[0]['course']['id']}}')"> --}}
         <h3 class="title_1" style="display:none"></h3>
             <div>
               <div class="row ">
@@ -154,8 +155,14 @@ foreach ($linksArr as $key => $value) {
                   </div>
                 </div>
               </div>
+              <div class="row">
+
+
+              </div>
 
             </div>
+
+
           </div>
         </div>
        <div class="container mb-4">

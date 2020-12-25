@@ -2,8 +2,6 @@ $(document).ready(function() {
     $("#file").change(function() {
         $('#form').submit()
     });
-
-
 })
 
 function addPhoto(theItemPosiotion, theimagePosition) {
@@ -15,10 +13,10 @@ function addPhoto(theItemPosiotion, theimagePosition) {
     $('#file').click();
 }
 
-function saveInput(posotion, type, value) {
-
+function saveInput(posotion, type, value, courseIdUser) {
+    let courseId = courseIdUser ? courseIdUser : null
     let url = location.origin + '/addInput';
-    axios({ method: 'post', url: url, data: { position: posotion, type: type, value: value } }).then(({ data }) => {
+    axios({ method: 'post', url: url, data: { position: posotion, type: type, value: value, courseId: courseId } }).then(({ data }) => {
 
 
     })

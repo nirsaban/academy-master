@@ -36,6 +36,7 @@ Route::get('getAllDataPort/{id}','ProfileController@getDataPort');
 Route::get('deletePort/{id}','ProfileController@deletePort');
 Route::post('addPqStudent','ProfileController@addPqStudent');
 Route::get('getInputsEdu','ProfileController@getInputsEdu');
+Route::get('getInputsWork','ProfileController@getInputsWork');
 
 
 //employer routes

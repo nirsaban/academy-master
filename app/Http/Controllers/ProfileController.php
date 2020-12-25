@@ -9,6 +9,7 @@ use App\Like;
 use App\Message;
 use App\Profile;
 use App\User;
+use App\Hashtag;
 use App\Watch;
 use http\Exception;
 use Illuminate\Http\Request;
@@ -212,6 +213,16 @@ public function addPhoto(Request $request){
 }
 
  public function addInput(Request $request){
+     if($request->type == 'hashtag'){
+        $hashtag = Hashtag::where('name', $request->value)->where('course_id','=',$request->courseId)->first();
+        if ($hashtag === null) {
+            Hashtag:: create([
+                'name'=>$request->value,
+                'course_id'=>$request->courseId
+            ]);
+        }
+
+     }
      $position = $request->position;
      $type = $request->type;
      $value = $request->value;
@@ -267,4 +278,9 @@ public function addPhoto(Request $request){
 
     return view('student.partials/inputEducation');
  }
+ public function getInputsWork(){
+
+    return view('student.partials/inputWork');
+ }
+
 }

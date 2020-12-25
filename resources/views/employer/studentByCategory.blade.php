@@ -123,9 +123,10 @@
                         @if(isset($allData[0]->work_experience))
                             @foreach(json_decode($allData[0]->work_experience) as $work)
                                 <?php $count++ ; ?>
-                                @if(strlen($work) > 2)
-                                    <span>{{$count .'. '}}</span><p style="display: inline-block" class="h6 pEx">{{$work}}</p><br>
+                                @if(strlen($work->theJob) > 2)
+                                <li class="tags text-capitalize">{{$work->theJob}} ,({{$work->startYear}}-{{$work->endYear}})</li>
                                 @endif
+
                             @endforeach
                         @endif
                         </h5>
@@ -136,7 +137,6 @@
                 </ul>
               </div>
             </div>
-
             <div class="card">
               <div class="card-header d-flex justify-content-center">
                 <h4 class="card-title">My Education</h4>
@@ -152,8 +152,8 @@
                         @if(isset($allData[0]->education))
                             @foreach(json_decode($allData[0]->education) as $edu)
                                 <?php $count++ ; ?>
-                                @if(strlen($edu) > 2)
-                                    <span>{{$count .'. '}}</span><p style="display: inline-block" class="h6 pEdu ">{{$edu}}</p><br>
+                                @if(strlen($edu->FieldStudy) > 2)
+                                <li class="tags text-capitalize">{{$edu->FieldStudy}} ,({{$edu->startYear}}-{{$edu->endYear}})</li>
                                 @endif
                             @endforeach
                         @endif

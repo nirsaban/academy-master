@@ -43,9 +43,9 @@
                                        @if(isset($student['profile']['education']))
                                            <p class="text-left"><strong>Education: </strong><br>
                                            @foreach(json_decode($student['profile']['education']) as $edu)
-                                               @if(strlen($edu) > 2)
-                                                   {{$edu}}<br>
-                                               @endif
+                                           @if(strlen($edu->FieldStudy) > 2)
+                                           <li class="tags text-capitalize">{{$edu->FieldStudy}} ,({{$edu->startYear}}-{{$edu->endYear}})</li>
+                                           @endif
                                            @endforeach
                                            </p>
                                        @endif
@@ -56,9 +56,9 @@
                                        @if(isset($student['profile']['work_experience']))
                                            <p class="text-left"><strong>Works: </strong><br>
                                                @foreach(json_decode($student['profile']['work_experience']) as $work)
-                                                   @if(strlen($work) > 2)
-                                                       {{$work}}<br>
-                                       @endif
+                                               @if(strlen($work->theJob) > 2)
+                                               <li class="tags text-capitalize">{{$work->theJob}} ,({{$work->startYear}}-{{$work->endYear}})</li>
+                                               @endif
                                        @endforeach
                                            </p>
                                        @endif
