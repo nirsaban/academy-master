@@ -26,7 +26,7 @@
                 <hr>
                 <center>
                     @if(isset($student['profile']['about_me']))
-                           <p class="text-left" style="width: 300px !important;background-color:red;"><strong>About me: </strong><br>
+                           <p class="text-left" style="width: 300px !important;word-break: break-word;"><strong>About me: </strong><br>
                             {{$student['profile']['about_me']}}
                             <br>
                     @endif
