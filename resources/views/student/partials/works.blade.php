@@ -59,6 +59,7 @@
                          </select>
                       </div>
                   </div>
+                  <i class="fa fa-trash-alt fa-md fa-2x" style="color: rgb(238, 126, 126);margin-left:2px" onclick="this.parentNode.remove()"></i>
                 @endif
 
             </div>
