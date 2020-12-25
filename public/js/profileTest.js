@@ -72,7 +72,7 @@ function updateEducation(id) {
     let allStart = document.querySelectorAll('#myModalEducation  .start');
     allStart.forEach(start => {
         console.log(start.value)
-        if (start.style.border == '1px solid red' || start.value == 'Start Year') {
+        if (start.style.border == '1px solid red' || start.value == '') {
             document.getElementById('errorEdu').textContent = 'you have error in yout date input'
             errorDate = true
         }
@@ -134,7 +134,7 @@ function updateWorks(id) {
 
     allStart.forEach(start => {
         console.log(start.value)
-        if (start.style.border == '1px solid red' || start.value == 'Start Year') {
+        if (start.style.border == '1px solid red' || start.value == '') {
             document.getElementById('errorWork').textContent = 'you have an error in your date inputs'
             errorDate = true
         }
