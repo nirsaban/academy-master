@@ -69,7 +69,7 @@ function updateEducation(id) {
         eduObj['endYear'] = endYear
         educationArr.push(eduObj)
     })
-    let allStart = document.querySelectorAll('#myModalEducation > .start');
+    let allStart = document.querySelectorAll('#myModalEducation  .start');
     allStart.forEach(start => {
         console.log(start.value)
         if (start.style.border == '1px solid red' || start.value == 'Start Year') {
@@ -130,7 +130,7 @@ function updateWorks(id) {
         workObj['endYear'] = endYear
         worksArr.push(workObj)
     })
-    let allStart = document.querySelectorAll('#myModalWorks > .start');
+    let allStart = document.querySelectorAll('#myModalWorks  .start');
     allStart.forEach(start => {
         if (start.style.border == '1px solid red' || start.value == 'Start Year') {
             document.getElementById('errorWork').textContent = 'you have an error in your date inputs'
