@@ -83,14 +83,6 @@ foreach ($linksArr as $key => $value) {
 
 <div class="content">
 
-
-<form style="display: none" action="{{route('addPhoto')}}" method="post" enctype="multipart/form-data" id = "form">
-    @csrf
-    <input type="file" id="file" style = "display:none" name ="file">
-    <input type="hidden" id="the_position" name ="position">
-
-    </form>
-
     @if($errors->any())
     <script>Swal.fire("{{$errors->first()}}", "sorry :)", "error")</script>
    @endif
@@ -122,7 +114,6 @@ foreach ($linksArr as $key => $value) {
             <div>
               <div class="row ">
                 <div class="col-md-7">
-
                     <p class="des_1" class="text-justify"> @if(isset($des_1)) {{$des_1}} @endif</p>
                 </div>
                   <div class="col-md-5">
@@ -133,15 +124,21 @@ foreach ($linksArr as $key => $value) {
                       <li data-target="#CarouselTest" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
+                        @if(isset($img1_1))
                       <div class="carousel-item active">
-                        <img class="d-block" @if(isset($img1_1)) src="{{asset('imagesPort/_'.$id.'/1_1'.$img1_1)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  id = "1_1" onclick="addPhoto(1,1)">
+                        <img class="d-block"  src="{{asset('imagesPort/_'.$id.'/1_1'.$img1_1)}}"   width="450" height="300"  id = "1_1" >
                       </div>
+                      @endif
+                      @if(isset($img1_2))
                       <div class="carousel-item">
-                        <img class="d-block"  @if(isset($img1_2)) src="{{asset('imagesPort/_'.$id.'/1_2'.$img1_2)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id = "1_2" onclick="addPhoto(1,2)">
+                        <img class="d-block"   src="{{asset('imagesPort/_'.$id.'/1_2'.$img1_2)}}" width="450" height="300" id = "1_2" >
                       </div>
+                      @endif
+                      @if(isset($img1_3))
                       <div class="carousel-item">
-                        <img class="d-block" @if(isset($img1_3)) src="{{asset('imagesPort/_'.$id.'/1_3'.$img1_3)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  id = "1_1"  onclick="addPhoto(1,3)">
+                        <img class="d-block"  src="{{asset('imagesPort/_'.$id.'/1_3'.$img1_3)}}"  width="450" height="300"  id = "1_1" >
                       </div>
+                      @endif
                       <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
@@ -159,12 +156,10 @@ foreach ($linksArr as $key => $value) {
           </div>
         </div>
        <div class="container mb-4">
-            <input type="text" class="form-control mb-3" id="title_2"  @if(isset($title_2)) value = " {{$title_2}}" @endif placeholder="Enter second title" onblur = "saveInput(2,'title',this.value)" >
-               <h3 class="title_2" style="display:none" > @if(isset($title_2))  {{$title_2}}" @endif </h3>
+               <h3 class="title_2"> @if(isset($title_2))  {{$title_2}}" @endif </h3>
                 <div>
                   <div class="row ">
                     <div class="col-md-7">
-
                         <p class="des_2">@if(isset($des_2)) {{$des_2}} @endif</p>
                      </div>
                       <div class="col-md-5">
@@ -175,15 +170,21 @@ foreach ($linksArr as $key => $value) {
                           <li data-target="#CarouselTest" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
+                            @if(isset($img2_1))
                           <div class="carousel-item active">
-                            <img class="d-block" class="d-block" @if(isset($img2_1)) src="{{asset('imagesPort/_'.$id.'/2_1'.$img2_1)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id ="2_1 " alt="" onclick="addPhoto(2,1)">
+                            <img class="d-block" class="d-block"  src="{{asset('imagesPort/_'.$id.'/2_1'.$img2_1)}}"   width="450" height="300" id ="2_1 " alt="">
                           </div>
+                          @endif
+                          @if(isset($img2_2))
                           <div class="carousel-item">
-                            <img class="d-block" class="d-block" @if(isset($img2_2)) src="{{asset('imagesPort/_'.$id.'/2_2'.$img2_2)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id ="2_2 "alt="" onclick="addPhoto(2,2)">
+                            <img class="d-block" class="d-block"  src="{{asset('imagesPort/_'.$id.'/2_2'.$img2_2)}}"  width="450" height="300" id ="2_2 "alt="" >
                           </div>
+                          @endif
+                          @if(isset($img2_3))
                           <div class="carousel-item">
-                            <img class="d-block" class="d-block" @if(isset($img2_3)) src="{{asset('imagesPort/_'.$id.'/2_3'.$img2_3)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300" id ="2_3 "alt="" onclick="addPhoto(2,3)">
+                            <img class="d-block" class="d-block"  src="{{asset('imagesPort/_'.$id.'/2_3'.$img2_3)}}"  width="450" height="300" id ="2_3 "alt="" >
                           </div>
+                          @endif
                           <a class="carousel-control-prev" href="#CarouselTest1" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
@@ -201,7 +202,7 @@ foreach ($linksArr as $key => $value) {
               </div>
               <div class="container mb-4">
 
-                <h3 class="title_3" style="display:none">@if(isset($title_3)) {{$title_3}} @endif</h3>
+                <h3 class="title_3">@if(isset($title_3)) {{$title_3}} @endif</h3>
                     <div>
                       <div class="row ">
                         <div class="col-md-7">
@@ -216,15 +217,21 @@ foreach ($linksArr as $key => $value) {
                               <li data-target="#CarouselTest" data-slide-to="2"></li>
                             </ol>
                             <div class="carousel-inner">
+                                @if(isset($img3_1))
                               <div class="carousel-item active">
-                                <img class="d-block" class="d-block" @if(isset($img3_1)) src="{{asset('imagesPort/_'.$id.'/3_1'.$img3_1)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"   alt="" onclick="addPhoto(3,1)">
+                                <img class="d-block" class="d-block"  src="{{asset('imagesPort/_'.$id.'/3_1'.$img3_1)}}"  width="450" height="300"   alt="" >
                               </div>
+                              @endif
+                              @if(isset($img3_2))
                               <div class="carousel-item">
-                                <img class="d-block" class="d-block" @if(isset($img3_2)) src="{{asset('imagesPort/_'.$id.'/3_2'.$img3_2)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  alt="" onclick="addPhoto(3,2)">
+                                <img class="d-block" class="d-block"  src="{{asset('imagesPort/_'.$id.'/3_2'.$img3_2)}}"   width="450" height="300"  alt="" >
                               </div>
+                              @endif
+                              @if(isset($img3_3))
                               <div class="carousel-item">
-                                <img class="d-block" class="d-block" @if(isset($img3_3)) src="{{asset('imagesPort/_'.$id.'/3_3'.$img3_3)}}" @else src="{{asset('images/add.png')}}" @endif width="450" height="300"  alt="" onclick="addPhoto(3,3)">
+                                <img class="d-block" class="d-block"  src="{{asset('imagesPort/_'.$id.'/3_3'.$img3_3)}}"   width="450" height="300"  alt="" >
                               </div>
+                              @endif
                               <a class="carousel-control-prev" href="#CarouselTest2" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Previous</span>
