@@ -71,12 +71,13 @@ function updateEducation(id) {
     })
     let allStart = document.querySelectorAll('.start');
     allStart.forEach(start => {
+        console.log(start.value)
         if (start.style.border == '1px solid red' || start.value == '') {
             document.getElementById('errorEdu').textContent = 'you have error in yout date input'
             errorDate = true
         }
     })
-
+    console.log(errorDate)
     if (!errorDate) {
         let url = location.origin + '/profile/update';
         axios({
