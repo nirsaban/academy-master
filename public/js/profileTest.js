@@ -131,7 +131,9 @@ function updateWorks(id) {
         worksArr.push(workObj)
     })
     let allStart = document.querySelectorAll('#myModalWorks  .start');
+
     allStart.forEach(start => {
+        console.log(start.value)
         if (start.style.border == '1px solid red' || start.value == 'Start Year') {
             document.getElementById('errorWork').textContent = 'you have an error in your date inputs'
             errorDate = true
